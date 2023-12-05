@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Assert\Images\App\logo_transparent.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Assert\Image\**" />
+    <EmbeddedResource Remove="Assert\Image\**" />
+    <None Remove="Assert\Image\**" />
+    <Page Remove="Assert\Image\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Assert\Images\back-image.jpg" />
+    <None Remove="Assert\Images\key-icon.png" />
+    <None Remove="Assert\Images\logo.png" />
+    <None Remove="Assert\Images\user-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assert\Images\App\logo_transparent.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFramework" Version="6.2.0" />
+    <PackageReference Include="EntityFramework.ru" Version="6.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Assert\Language\" />
+    <Folder Include="Setting\" />
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assert\Images\back-image.jpg" />
+    <Resource Include="Assert\Images\key-icon.png" />
+    <Resource Include="Assert\Images\logo.png" />
+    <Resource Include="Assert\Images\user-icon.png" />
+  </ItemGroup>
+
+</Project>

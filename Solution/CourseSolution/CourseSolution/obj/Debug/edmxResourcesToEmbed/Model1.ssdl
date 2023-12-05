@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PlatinumKitchenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CUSTOMERS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="FIRST_NAME" Type="varchar" MaxLength="50" />
+    <Property Name="LAST_NAME" Type="varchar" MaxLength="50" />
+    <Property Name="LOGIN" Type="varchar" MaxLength="50" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="50" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="100" />
+    <Property Name="PHONE_NUMBER" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="EMPLOYEES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="FIRST_NAME" Type="varchar" MaxLength="50" />
+    <Property Name="LAST_NAME" Type="varchar" MaxLength="50" />
+    <Property Name="LOGIN" Type="varchar" MaxLength="50" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="50" />
+    <Property Name="POSITION" Type="varchar" MaxLength="50" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="100" />
+    <Property Name="PHONE_NUMBER" Type="varchar" MaxLength="20" />
+    <Property Name="SALARY" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="MENU">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="varchar" MaxLength="50" />
+    <Property Name="DESCRIPTION" Type="varchar" MaxLength="200" />
+    <Property Name="PRICE" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="MENU_TYPE" Type="varchar" MaxLength="50" />
+    <Property Name="NOTES" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="ORDERITEMS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ORDER_ID" Type="int" />
+    <Property Name="MENU_ID" Type="int" />
+    <Property Name="QUANTITY" Type="int" />
+    <Property Name="NOTES" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="ORDERS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ORDER_DATE" Type="datetime2" Precision="6" />
+    <Property Name="TABLE_ID" Type="int" />
+    <Property Name="CUSTOMER_ID" Type="int" />
+    <Property Name="WAITER_ID" Type="int" />
+    <Property Name="STATUS" Type="varchar" MaxLength="50" />
+    <Property Name="NOTES" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="REVIEWS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ORDER_ID" Type="int" />
+    <Property Name="RATING" Type="int" />
+    <Property Name="NOTES" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="TABLES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="TABLE_NUMBER" Type="varchar" MaxLength="10" />
+    <Property Name="TABLE_SIZE" Type="varchar" MaxLength="20" />
+    <Property Name="TABLE_STATUS" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK__ORDERITEM__MENU___6D0D32F4">
+    <End Role="MENU" Type="Self.MENU" Multiplicity="0..1" />
+    <End Role="ORDERITEMS" Type="Self.ORDERITEMS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MENU">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDERITEMS">
+        <PropertyRef Name="MENU_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDERITEM__ORDER__6C190EBB">
+    <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="0..1" />
+    <End Role="ORDERITEMS" Type="Self.ORDERITEMS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDERITEMS">
+        <PropertyRef Name="ORDER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDERS__CUSTOMER__68487DD7">
+    <End Role="CUSTOMERS" Type="Self.CUSTOMERS" Multiplicity="0..1" />
+    <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CUSTOMERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDERS">
+        <PropertyRef Name="CUSTOMER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDERS__TABLE_ID__6754599E">
+    <End Role="TABLES" Type="Self.TABLES" Multiplicity="0..1" />
+    <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TABLES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDERS">
+        <PropertyRef Name="TABLE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ORDERS__WAITER_I__693CA210">
+    <End Role="EMPLOYEES" Type="Self.EMPLOYEES" Multiplicity="0..1" />
+    <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDERS">
+        <PropertyRef Name="WAITER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__REVIEWS__ORDER_I__6FE99F9F">
+    <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="0..1" />
+    <End Role="REVIEWS" Type="Self.REVIEWS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="REVIEWS">
+        <PropertyRef Name="ORDER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PlatinumKitchenModelStoreContainer">
+    <EntitySet Name="CUSTOMERS" EntityType="Self.CUSTOMERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLOYEES" EntityType="Self.EMPLOYEES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MENU" EntityType="Self.MENU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDERITEMS" EntityType="Self.ORDERITEMS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDERS" EntityType="Self.ORDERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REVIEWS" EntityType="Self.REVIEWS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TABLES" EntityType="Self.TABLES" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__ORDERITEM__MENU___6D0D32F4" Association="Self.FK__ORDERITEM__MENU___6D0D32F4">
+      <End Role="MENU" EntitySet="MENU" />
+      <End Role="ORDERITEMS" EntitySet="ORDERITEMS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDERITEM__ORDER__6C190EBB" Association="Self.FK__ORDERITEM__ORDER__6C190EBB">
+      <End Role="ORDERS" EntitySet="ORDERS" />
+      <End Role="ORDERITEMS" EntitySet="ORDERITEMS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDERS__CUSTOMER__68487DD7" Association="Self.FK__ORDERS__CUSTOMER__68487DD7">
+      <End Role="CUSTOMERS" EntitySet="CUSTOMERS" />
+      <End Role="ORDERS" EntitySet="ORDERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDERS__TABLE_ID__6754599E" Association="Self.FK__ORDERS__TABLE_ID__6754599E">
+      <End Role="TABLES" EntitySet="TABLES" />
+      <End Role="ORDERS" EntitySet="ORDERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ORDERS__WAITER_I__693CA210" Association="Self.FK__ORDERS__WAITER_I__693CA210">
+      <End Role="EMPLOYEES" EntitySet="EMPLOYEES" />
+      <End Role="ORDERS" EntitySet="ORDERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__REVIEWS__ORDER_I__6FE99F9F" Association="Self.FK__REVIEWS__ORDER_I__6FE99F9F">
+      <End Role="ORDERS" EntitySet="ORDERS" />
+      <End Role="REVIEWS" EntitySet="REVIEWS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
