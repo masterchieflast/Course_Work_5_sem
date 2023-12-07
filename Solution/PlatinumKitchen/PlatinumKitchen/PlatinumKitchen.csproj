@@ -24,6 +24,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Remove="View\Autorize\LoginView1.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="Assert\Images\App\logo_transparent.ico" />
   </ItemGroup>
 
@@ -40,9 +44,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Assert\Language\" />
     <Folder Include="Setting\" />
-    <Folder Include="ViewModels\" />
+    <Folder Include="View\Admin\" />
+    <Folder Include="View\Employee\" />
+    <Folder Include="View\Restaurant\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -50,6 +55,10 @@
     <Resource Include="Assert\Images\key-icon.png" />
     <Resource Include="Assert\Images\logo.png" />
     <Resource Include="Assert\Images\user-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SplashScreen Include="View\Autorize\LoginView1.xaml" />
   </ItemGroup>
 
 </Project>

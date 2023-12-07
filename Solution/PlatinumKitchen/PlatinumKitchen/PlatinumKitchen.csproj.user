@@ -7,7 +7,27 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="View\MainWindow.xaml">
+    <Compile Update="View\Autorize\AutorizeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Autorize\LoginView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Assert\Languages\English.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Assert\Languages\Russian.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Autorize\AutorizeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Autorize\LoginView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Main\MainView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

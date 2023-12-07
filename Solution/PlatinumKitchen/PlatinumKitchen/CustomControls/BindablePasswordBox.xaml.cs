@@ -34,7 +34,6 @@ namespace PlatinumKitchen.CustomControls
         {
             InitializeComponent();
             txtPassword.PasswordChanged += OnPasswordChanged;
-
         }
 
         private void OnPasswordChanged(object sender, RoutedEventArgs e)

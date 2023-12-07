@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\App.xaml
-3-533280196
+6528054836
 1-2120279128
-351040088016
+36-23491653
 229-1327079270
-CustomControls\BindablePasswordBox.xaml;View\LoginView.xaml;View\MainWindow.xaml;
-
-False
+Assert\Languages\English.xaml;Assert\Languages\Russian.xaml;CustomControls\BindablePasswordBox.xaml;View\Autorize\AutorizeView.xaml;View\Autorize\LoginView.xaml;View\Main\MainView.xaml;
+view\autorize\loginview1.xaml
+True
 
