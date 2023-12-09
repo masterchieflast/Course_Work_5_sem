@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -28,25 +29,43 @@ namespace PlatinumKitchen.ViewModels.Autorize
                 OnPropertyChanged("MainBodyAuthenticationPage");
             }
         }
-        private DelegateCommand? closeAuthenticationView;
 
-        public ICommand CloseAuthenticationView
+        private DelegateCommand? closeView;
+        private DelegateCommand? minimizeView;
+
+        public ICommand CloseView
         {
             get
             {
-                if (closeAuthenticationView == null)
+                if (closeView == null)
                 {
-                    closeAuthenticationView = new DelegateCommand(CloseAuthenticationViewViewWindow);
+                    closeView = new DelegateCommand(CloseViewWindow);
                 }
-                return closeAuthenticationView;
+                return closeView;
             }
         }
 
-        private void CloseAuthenticationViewViewWindow()
+        private void CloseViewWindow()
         {
-            App.Current.Shutdown();
+            Application.Current.Shutdown();
+        }
+        public ICommand MinimizeView
+        {
+            get
+            {
+                if (minimizeView == null)
+                {
+                    minimizeView = new DelegateCommand(MinimizeViewWindow);
+                }
+                return minimizeView;
+            }
         }
 
+        private void MinimizeViewWindow()
+        {
+            Application.Current.MainWindow.WindowState = WindowState.Minimized;
+        }
+        
         private DelegateCommand<string>? setAuthenticationViewPage;
 
         public ICommand SetAuthenticationViewPage

@@ -9,6 +9,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using PlatinumKitchen.CustomControls;
+using PlatinumKitchen.View.Autorize;
 using System;
 using System.Diagnostics;
 using System.Windows;

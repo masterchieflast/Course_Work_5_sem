@@ -57,8 +57,4 @@
     <Resource Include="Assert\Images\user-icon.png" />
   </ItemGroup>
 
-  <ItemGroup>
-    <SplashScreen Include="View\Autorize\LoginView1.xaml" />
-  </ItemGroup>
-
 </Project>

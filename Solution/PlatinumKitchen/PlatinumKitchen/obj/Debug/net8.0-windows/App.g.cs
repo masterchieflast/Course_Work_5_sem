@@ -62,8 +62,6 @@ namespace PlatinumKitchen {
         [System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [System.CodeDom.Compiler.GeneratedCodeAttribute("PresentationBuildTasks", "8.0.0.0")]
         public static void Main() {
-            SplashScreen splashScreen = new SplashScreen("view/autorize/loginview1.xaml");
-            splashScreen.Show(true);
             PlatinumKitchen.App app = new PlatinumKitchen.App();
             app.InitializeComponent();
             app.Run();

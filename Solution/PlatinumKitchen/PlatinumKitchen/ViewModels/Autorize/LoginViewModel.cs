@@ -21,7 +21,8 @@ namespace PlatinumKitchen.ViewModels.Autorize
     {
         private string _Login;
         private string _password;
-        private string _errorMessage;
+        private string _loginError;
+        private string _passwordError;
 
         public string Login
         {
@@ -51,35 +52,48 @@ namespace PlatinumKitchen.ViewModels.Autorize
             }
         }
 
-        public string ErrorMessage
+        public string LoginError
         {
             get
             {
-                return _errorMessage;
+                return _loginError;
             }
 
             set
             {
-                _errorMessage = value;
-                OnPropertyChanged(nameof(ErrorMessage));
+                _loginError = value;
+                OnPropertyChanged(nameof(_loginError));
             }
         }
-
-        private DelegateCommand? loginApplication;
-
-        public ICommand LoginApplication
+        public string PasswordError
         {
             get
             {
-                if (loginApplication == null)
-                {
-                    loginApplication = new DelegateCommand(LoginApplicationEnter);
-                }
-                return loginApplication;
+                return _passwordError;
+            }
+
+            set
+            {
+                _passwordError = value;
+                OnPropertyChanged(nameof(_passwordError));
             }
         }
 
-        private void LoginApplicationEnter()
+        private DelegateCommand? loginCommand;
+
+        public ICommand LoginCommand
+        {
+            get
+            {
+                if (loginCommand == null)
+                {
+                    loginCommand = new DelegateCommand(LoginApplication);
+                }
+                return loginCommand;
+            }
+        }
+
+        private void LoginApplication()
         {
             bool check_01 = true;
             bool check_02 = true;

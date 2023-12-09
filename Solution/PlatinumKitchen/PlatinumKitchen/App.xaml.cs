@@ -35,8 +35,6 @@ namespace PlatinumKitchen
             Controller.AutorizeViewModel = autorizeViewModel;
             Controller.AutorizeView = autorizeView;
             autorizeViewModel.MainBodyAuthenticationPage = Controller.LoginView;
-
         }
     }
-
 }

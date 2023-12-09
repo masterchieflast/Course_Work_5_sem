@@ -33,6 +33,7 @@ namespace PlatinumKitchen.Models
             language = "English";
             LoginView = new();
             LoginViewModel = new();
+            LoginView.DataContext = LoginViewModel;
         }
 
         public static void SetLanguage(string languag)
@@ -56,7 +57,7 @@ namespace PlatinumKitchen.Models
             switch (namePage)
             {
                 case "Login":
-                    //authenticationViewModel.MainBodyAuthenticationPage = loginView;
+                    AutorizeViewModel.MainBodyAuthenticationPage = LoginView;
                     break;
                 case "Registration":
                     //authenticationViewModel.MainBodyAuthenticationPage = registrationView;

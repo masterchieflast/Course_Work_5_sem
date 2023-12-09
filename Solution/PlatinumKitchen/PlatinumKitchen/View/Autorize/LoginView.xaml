@@ -5,12 +5,9 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PlatinumKitchen.View.Autorize" xmlns:customcontrols="clr-namespace:PlatinumKitchen.CustomControls"
       mc:Ignorable="d" 
-      Title="LoginView" Height="550" Width="800">
+      Title="LoginView">
 
-    <StackPanel Width="220"
-            Grid.Row="1"
-            Orientation="Vertical"
-            Margin="0,35,0,0">
+    <StackPanel >
 
         <Image Source="/PlatinumKitchen;component/Assert/Images/Logo.png"
            Width="200" Height="200"/>
@@ -43,7 +40,7 @@
             </TextBox.Background>
         </TextBox>
 
-        <TextBlock Text="{DynamicResource Password}"
+        <TextBlock Text="{DynamicResource Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                Foreground="#ffe0a3"
                FontSize="12"
                FontWeight="Medium"
@@ -54,7 +51,7 @@
                                         Height="28"                            
                                         Margin="0,5,0,0"/>
 
-        <TextBlock Text="{Binding ErrorMessage}"
+        <TextBlock Text="{Binding ErrorMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                Foreground="#D7596D"
                FontSize="12"
                FontWeight="Medium"
