@@ -154,10 +154,6 @@ namespace PlatinumKitchen.ViewModels.Autorize
                     List<Customers> users = Controller.DataBase.CustomerRepository.GetAll().ToList();
                     if(!users.Any(user => user.Login == Login))
                     {
-                        check_01 = false;
-                    }
-                    else
-                    {
                         var user = new Customers
                         {
                             First_Name = this.Login,
@@ -168,6 +164,9 @@ namespace PlatinumKitchen.ViewModels.Autorize
                             Phone_Number = "+375298477777"
                         };
                         Controller.DataBase.CustomerRepository.Create(user);
+                        check_01 = false;
+
+                        MessageBox.Show("Good");
                     }
                 }
 
