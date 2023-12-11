@@ -7,8 +7,16 @@ using System.Windows.Controls;
 
 namespace PlatinumKitchen.Models.Database.Entityes
 {
-    public class Employees : Customers
+    public class Employees 
     {
+        public int Id { get; set; }
+        public string First_Name { get; set; }
+        public string Last_Name { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
+        public string Phone_Number { get; set; }
+        public virtual ICollection<Orders> Orders { get; set; }
         public string Position { get; set; }
         public decimal? Salary { get; set; }
 

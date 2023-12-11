@@ -158,7 +158,7 @@
                     Grid.Row="1"
                     Margin="200,35,288,0"
                     Content="{Binding MainBodyAuthenticationPage}"
-                    NavigationUIVisibility="Hidden" Grid.Column="1"/>
+                    NavigationUIVisibility="Hidden" Grid.Column="1" Navigated="MainBodyAuthentication_Navigated"/>
             </Grid>
         </Border>
     </Border>

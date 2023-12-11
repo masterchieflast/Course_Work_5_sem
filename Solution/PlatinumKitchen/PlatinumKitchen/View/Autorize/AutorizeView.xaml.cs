@@ -29,5 +29,10 @@ namespace PlatinumKitchen.View.Autorize
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
         }
+
+        private void MainBodyAuthentication_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        {
+
+        }
     }
 }

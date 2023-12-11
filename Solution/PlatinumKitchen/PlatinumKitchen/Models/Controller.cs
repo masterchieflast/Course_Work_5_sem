@@ -1,6 +1,7 @@
 ﻿using PlatinumKitchen.Models.Database;
 using PlatinumKitchen.Models.Database.Entityes;
 using PlatinumKitchen.View.Autorize;
+using PlatinumKitchen.ViewModels;
 using PlatinumKitchen.ViewModels.Autorize;
 using System;
 using System.Collections.Generic;
@@ -15,14 +16,17 @@ namespace PlatinumKitchen.Models
     {
 
         public static Customers? User;
+        public static Employees? UserE;
         public static LoginViewModel LoginViewModel;
         public static LoginView LoginView;
-        public static AutorizeViewModel AutorizeViewModel;
+        public static RegistrationViewModel RegistrationViewModel;
+        public static RegistrationView RegistrationView;
+        public static AutorizeViewModel AutorizeViewModel; 
         public static AutorizeView AutorizeView;
         //public static MainViewModel MainViewModel;
         public static MainView MainView;
+        public static MainViewModel MainViewModel;
         /*public static MainView mainView;
-        public static MainViewModel mainViewModel;
         public static AuthenticationView authenticationView;*/
         public static UnitOfWork DataBase = new UnitOfWork();
 
@@ -31,9 +35,18 @@ namespace PlatinumKitchen.Models
         static Controller()
         {
             language = "English";
+
+            MainView = new();
+            MainViewModel = new();
+            MainView.DataContext = MainViewModel;
+
             LoginView = new();
             LoginViewModel = new();
             LoginView.DataContext = LoginViewModel;
+
+            RegistrationView = new();
+            RegistrationViewModel = new();
+            RegistrationView.DataContext = RegistrationViewModel;
         }
 
         public static void SetLanguage(string languag)
@@ -60,10 +73,8 @@ namespace PlatinumKitchen.Models
                     AutorizeViewModel.MainBodyAuthenticationPage = LoginView;
                     break;
                 case "Registration":
-                    //authenticationViewModel.MainBodyAuthenticationPage = registrationView;
-                    break;
                 default:
-                    //authenticationViewModel.MainBodyAuthenticationPage = registrationView;
+                    AutorizeViewModel.MainBodyAuthenticationPage = RegistrationView;
                     break;
             }
         }

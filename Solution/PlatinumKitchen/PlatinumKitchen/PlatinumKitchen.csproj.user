@@ -13,6 +13,9 @@
     <Compile Update="View\Autorize\LoginView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\Autorize\RegistrationView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Assert\Languages\English.xaml">
@@ -25,6 +28,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Autorize\LoginView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Autorize\RegistrationView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Main\MainView.xaml">

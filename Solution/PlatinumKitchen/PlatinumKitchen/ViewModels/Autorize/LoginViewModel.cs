@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Principal;
 using System.Text;
@@ -9,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using PlatinumKitchen.Infasturcture;
 using PlatinumKitchen.Models;
 using PlatinumKitchen.Models.Database;
 using PlatinumKitchen.Models.Database.Entityes;
@@ -19,26 +21,25 @@ namespace PlatinumKitchen.ViewModels.Autorize
 {
     public class LoginViewModel : ViewModelBase
     {
-        private string _Login;
-        private string _password;
-        private string _loginError;
-        private string _passwordError;
+        private string _login;
+        private SecureString _password;
+        private string _messageError;
 
         public string Login
         {
             get
             {
-                return _Login;
+                return _login;
             }
 
             set
             {
-                _Login = value;
+                _login = value;
                 OnPropertyChanged(nameof(Login));
             }
         }
 
-        public string Password
+        public SecureString Password
         {
             get
             {
@@ -52,30 +53,17 @@ namespace PlatinumKitchen.ViewModels.Autorize
             }
         }
 
-        public string LoginError
+        public string MessageError
         {
             get
             {
-                return _loginError;
+                return _messageError;
             }
 
             set
             {
-                _loginError = value;
-                OnPropertyChanged(nameof(_loginError));
-            }
-        }
-        public string PasswordError
-        {
-            get
-            {
-                return _passwordError;
-            }
-
-            set
-            {
-                _passwordError = value;
-                OnPropertyChanged(nameof(_passwordError));
+                _messageError = value;
+                OnPropertyChanged(nameof(MessageError));
             }
         }
 
@@ -97,37 +85,62 @@ namespace PlatinumKitchen.ViewModels.Autorize
         {
             bool check_01 = true;
             bool check_02 = true;
+            
+            MessageError = "";
 
-            if (Login == "" || Login == null)
+            if (String.IsNullOrEmpty(Login))
             {
-
-                _errorMessage = Application.Current.FindResource("LoginError").ToString();
+                MessageError +=
+                Application.Current.FindResource("LoginError").ToString() + " ";
                 check_01 = false;
             }
-            if (Password == "" || Password == null)
+
+            if (String.IsNullOrEmpty(UnsecureString.ConvertToUnsecureString(Password)))
             {
 
-                _errorMessage = Application.Current.FindResource("PasswordError").ToString();
+                MessageError += check_01 ?
+                Application.Current.FindResource("PasswordError").ToString()
+                : Application.Current.FindResource("And").ToString() + ' ' + Application.Current.FindResource("PasswordError").ToString();
                 check_02 = false;
             }
 
             if (check_01 && check_02)
             {
-                List<Customers> users = Controller.DataBase.CustomerRepository.GetAll().ToList();
-                foreach (Customers user in users)
+                var pas = UnsecureString.ConvertToUnsecureString(Password);
+
+                if (Login.Length >= 9 && Login[..9].Equals("employees", StringComparison.CurrentCultureIgnoreCase))
                 {
-                    if (user.Login == Login && Password == user.Password)
+                    List<Employees> users = Controller.DataBase.EmployeeRepository.GetAll().ToList();
+                    foreach (Employees user in users)
                     {
-                        Controller.User = Controller.DataBase.CustomerRepository.Get(user.Id);
-                        _errorMessage = "";
-                        Controller.AutorizeView.Hide();
-                        App.StartMainView();
+                        if (user.Login == Login && pas == user.Password)
+                        {
+                            Controller.UserE = Controller.DataBase.EmployeeRepository.Get(user.Id);
+                            Controller.AutorizeView.Hide();
+                            App.StartMainView();
+                            check_01 = false;
+                        }
                     }
                 }
-            }
-            else
-            {
-                _errorMessage = Application.Current.FindResource("UserError").ToString();
+                else
+                {
+                    List<Customers> users = Controller.DataBase.CustomerRepository.GetAll().ToList();
+                    foreach (Customers user in users)
+                    {
+                        if (user.Login == Login && pas == user.Password)
+                        {
+                            Controller.User = Controller.DataBase.CustomerRepository.Get(user.Id);
+                            Controller.AutorizeView.Hide();
+                            App.StartMainView();
+                            check_01 = false;
+                        }
+                    }
+                }
+
+                if (check_01)
+                {
+                    MessageError = Application.Current.FindResource("UserError").ToString();
+                }
             }
         }
 
@@ -149,6 +162,5 @@ namespace PlatinumKitchen.ViewModels.Autorize
         {
             Controller.SetAuthenticationPage(LoginPage);
         }
-
     }
 }

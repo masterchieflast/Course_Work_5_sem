@@ -12,7 +12,7 @@ namespace PlatinumKitchen.Models.Database
     {
         PlatinumDB platinumDB = new();
 
-        private CustomerRepository customerRepository;
+        private CustomerRepository? customerRepository;
         private EmployeeRepository? employeeRepository;
         private MenuRepository? menuRepository;
         private OrderItemsRepository? orderItemsRepository;

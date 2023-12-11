@@ -20,6 +20,7 @@
     <None Remove="Assert\Images\back-image.jpg" />
     <None Remove="Assert\Images\key-icon.png" />
     <None Remove="Assert\Images\logo.png" />
+    <None Remove="Assert\Images\mail-icon.png" />
     <None Remove="Assert\Images\user-icon.png" />
   </ItemGroup>
 
@@ -44,7 +45,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Setting\" />
     <Folder Include="View\Admin\" />
     <Folder Include="View\Employee\" />
     <Folder Include="View\Restaurant\" />
@@ -54,6 +54,7 @@
     <Resource Include="Assert\Images\back-image.jpg" />
     <Resource Include="Assert\Images\key-icon.png" />
     <Resource Include="Assert\Images\logo.png" />
+    <Resource Include="Assert\Images\mail-icon.png" />
     <Resource Include="Assert\Images\user-icon.png" />
   </ItemGroup>
 

@@ -8,6 +8,12 @@
     <system:String x:Key="Registration">Registration</system:String>
     <system:String x:Key="NotRegister">Not Registr?</system:String>
     <system:String x:Key="Login">Login</system:String>
+    <system:String x:Key="And">and</system:String>
+    <system:String x:Key="AlreadyRegistr">Already Registr?</system:String>
+    <system:String x:Key="RepeatPassword">Repeat Password</system:String>
+    <system:String x:Key="PasswordNotEquals">Password Not Equals</system:String>
+    <system:String x:Key="Email">Email</system:String>
+    <system:String x:Key="EmailError">Email Error</system:String>
 
     <!--  Errors  -->
     <system:String x:Key="LoginError">Invalid Login</system:String>

@@ -19,7 +19,6 @@ namespace PlatinumKitchen
         {
             Controller.UpdateSettings();
             Controller.DataBase.Save();
-
             MainView mainView = new MainView();
             MainViewModel mainViewModel = new MainViewModel();
             //mainView.DataContext = mainViewModel;

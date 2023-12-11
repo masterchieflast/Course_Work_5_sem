@@ -144,3 +144,5 @@ D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\PlatinumKitchen.pdb
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\PlatinumKitchen.genruntimeconfig.cache
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\ref\PlatinumKitchen.dll
+D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\View\Autorize\RegistrationView.g.cs
+D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\View\Autorize\RegistrationView.baml

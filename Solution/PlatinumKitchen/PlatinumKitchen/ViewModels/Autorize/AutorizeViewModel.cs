@@ -63,7 +63,7 @@ namespace PlatinumKitchen.ViewModels.Autorize
 
         private void MinimizeViewWindow()
         {
-            Application.Current.MainWindow.WindowState = WindowState.Minimized;
+            Controller.AutorizeView.WindowState= WindowState.Minimized;
         }
         
         private DelegateCommand<string>? setAuthenticationViewPage;
