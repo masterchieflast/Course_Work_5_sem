@@ -4,8 +4,337 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainView" Height="450" Width="800">
+        Title="MainWindowView" Height="700" Width="1300"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" ResizeMode="CanResizeWithGrip">
+    <Border>
+        <Border.Background>
+            <ImageBrush ImageSource="/PlatinumKitchen;component/Assert/Images/back-image.jpg"
+                        Stretch="Fill"/>
+        </Border.Background>
+        <Border BorderThickness="1"
+            Opacity="0.95">
+            <Border.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="{StaticResource winBorderColor1}" Offset="0"/>
+                    <GradientStop Color="{StaticResource winBorderColor2}" Offset="0.5"/>
+                    <GradientStop Color="{StaticResource winBorderColor3}" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.BorderBrush>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <!--Navigation menu-->
+                    <ColumnDefinition Width="250"/>
+                    <!--Content section-->
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
-    <Grid>
-    </Grid>
+                <Grid Grid.Row="0" Grid.ColumnSpan="4" Background="#606569" RenderTransformOrigin="10,0.5" >
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleX="0"/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="30"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="btnClose"                           
+            BorderThickness="0"
+            Foreground="White"
+            FontSize="16"
+            FontFamily="Montserrat"
+            Cursor="Hand"
+            Grid.Column="1"
+            Command="{Binding CloseView}">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#7d7e80"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#d62736"/>
+                                        <Setter Property="Content">
+                                            <Setter.Value>
+                                                <TextBlock Foreground="#9d1e29">×</TextBlock>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18"
+                        CornerRadius="9"
+                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
+                    <Button x:Name="btnMaximize"                          
+            BorderThickness="0"
+            Foreground="White"
+            FontSize="12"
+            FontFamily="Montserrat"
+            Grid.Column="3"
+            Command="{Binding MaximizeView}">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#babbbc"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#00ca38"/>
+                                        <Setter Property="Content">
+                                            <Setter.Value>
+                                                <TextBlock Foreground="#016600">🗖</TextBlock>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18"
+                        CornerRadius="9"
+                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button x:Name="btnMinimize"                          
+            BorderThickness="0"
+            Foreground="White"
+            FontSize="12"
+            FontFamily="Montserrat"
+            Cursor="Hand"
+            Grid.Column="5"
+            Command="{Binding MinimizeView}">
+
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#e5e6e7"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#fac537"/>
+                                        <Setter Property="Content">
+                                            <Setter.Value>
+                                                <TextBlock Foreground="#995816">–</TextBlock>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="18" Height="18"
+                        CornerRadius="9"
+                        Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+                                      HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Button x:Name="ChangeLanguage"
+        Grid.Column="7"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Center"
+        Command="{Binding LanguageSwitch}"
+        Cursor="Hand" Height="30" Width="30">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <ImageBrush  ImageSource="/PlatinumKitchen;component/Assert/Images/language.png"/>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Width" Value="120"/>
+                                        <Setter Property="Height" Value="40"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Border Width="30" Height="30"
+                    CornerRadius="25"
+                    Background="{TemplateBinding Background}">
+                                    <ContentPresenter VerticalAlignment="Center"
+              HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+
+                <!--Navigation Menu-->
+                <Border Grid.Column="0"
+                    Grid.Row="1">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.7">
+                            <GradientStop Color="{StaticResource secondaryBackColor1}" Offset="0"/>
+                            <GradientStop Color="{StaticResource secondaryBackColor2}" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <StackPanel>
+
+                        <!--Logo-->
+                        <StackPanel Orientation="Horizontal"
+                                Height="100"
+                                Margin="15,25,0,40">
+
+                            <Image Source="/Assert/Images/logo.png" Width="200" Height="100"/>
+                        </StackPanel>
+
+                        <!--Menu Buttons-->
+                        <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color1}"
+                                 IsChecked="True"
+                                 Command="{Binding ShowHomeViewCommand}">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Dashboard" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+                        <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color2}"
+                                 Command="{Binding ShowCustomerViewCommand}">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="UserGroup" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Customers" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+                        <RadioButton Style="{StaticResource menuButton}"
+                                 Tag="{StaticResource color3}"
+                                 Command="{Binding ShowMenuViewCommand}"
+                                 CommandParameter="Menu">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="BowlFood" Style="{StaticResource menuButtonIcon}"/>
+                                <TextBlock Text="Menu" Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
+                        </RadioButton>
+                    </StackPanel>
+                </Border>
+
+                <!--Main Section-->
+                <Border CornerRadius="0,10,10,0"
+                    Grid.Column="1"
+                    Grid.Row="1">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="1,1" EndPoint="0,0">
+                            <GradientStop Color="{StaticResource primaryBackColor1}" Offset="0"/>
+                            <GradientStop Color="{StaticResource primaryBackColor2}" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <!--Header / Caption-->
+                            <RowDefinition Height="35"/>
+                            <!--Content section / Child views-->
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <!--Header / Caption-->
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <!--Caption-->
+                            <StackPanel Grid.Column="0"
+                                    Orientation="Horizontal"
+                                    VerticalAlignment="Center">
+                                <fa:IconImage Icon="{Binding Icon}"
+                                          Height="20"
+                                          Width="20"
+                                          Foreground="{StaticResource titleColor2}"
+                                          Margin="35,0,10,0"/>
+
+                                <TextBlock Text="{Binding Caption}"
+                                       Foreground="{StaticResource titleColor2}"
+                                       FontSize="16"
+                                       FontFamily="Montserrat"
+                                       FontWeight="Medium"
+                                       VerticalAlignment="Center"/>
+                            </StackPanel>
+
+                            <!--User options-->
+                            <StackPanel Grid.Column="1"
+                                    Orientation="Horizontal"
+                                    FlowDirection="RightToLeft"
+                                    VerticalAlignment="Center"
+                                    Margin="0,0,10,0">
+                                <Button Style="{StaticResource iconButton}"
+                                    Tag="{StaticResource color1}">
+                                    <fa:IconImage Icon="AngleDown"
+                                              Height="12" Width="12"
+                                              Style="{StaticResource iconButtonIcon}"/>
+                                </Button>
+                                <TextBlock Text="{Binding CurrentUserAccount.DisplayName}"
+                                       Foreground="{StaticResource titleColor3}"
+                                       FontFamily="Montserrat"
+                                       FontSize="12"
+                                       VerticalAlignment="Center"/>
+                                <Ellipse Height="35" Width="35"
+                                     Stroke="{StaticResource color2}"
+                                     StrokeThickness="2"
+                                     Margin="10,0,10,0">
+                                </Ellipse>
+                                <Button Style="{StaticResource iconButton}"
+                                    Tag="{StaticResource color3}">
+                                    <fa:IconImage Icon="Clock" Style="{StaticResource iconButtonIcon}"/>
+                                </Button>
+                                <Button Style="{StaticResource iconButton}"
+                                    Tag="{StaticResource color4}">
+                                    <fa:IconImage Icon="Envelope" Style="{StaticResource iconButtonIcon}"/>
+                                </Button>
+                                <Button Style="{StaticResource iconButton}"
+                                    Tag="{StaticResource color5}">
+                                    <fa:IconImage Icon="Bell" Style="{StaticResource iconButtonIcon}"/>
+                                </Button>
+                            </StackPanel>
+
+                        </Grid>
+                        <Frame x:Name="MainBodyPage"
+                               Content="{Binding MainBodyPage}"
+                               Grid.Row="2"
+                               NavigationUIVisibility="Hidden"
+                               Margin="25"/>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+    </Border>
 </Window>

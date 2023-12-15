@@ -30,9 +30,5 @@ namespace PlatinumKitchen.View.Autorize
                 DragMove();
         }
 
-        private void MainBodyAuthentication_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
-        {
-
-        }
     }
 }

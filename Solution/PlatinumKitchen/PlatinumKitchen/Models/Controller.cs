@@ -1,8 +1,10 @@
 ﻿using PlatinumKitchen.Models.Database;
 using PlatinumKitchen.Models.Database.Entityes;
 using PlatinumKitchen.View.Autorize;
+using PlatinumKitchen.View.Restaurant;
 using PlatinumKitchen.ViewModels;
 using PlatinumKitchen.ViewModels.Autorize;
+using PlatinumKitchen.ViewModels.Restaurant;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,7 @@ namespace PlatinumKitchen.Models
 {
     public static class Controller
     {
+        public static string Uri = "/study/sem5/CourseWork/Solution/PlatinumKitchen/PlatinumKitchen";
 
         public static Customers? User;
         public static Employees? UserE;
@@ -26,6 +29,8 @@ namespace PlatinumKitchen.Models
         //public static MainViewModel MainViewModel;
         public static MainView MainView;
         public static MainViewModel MainViewModel;
+        public static MenuView MenuView;
+        public static MenuViewModel MenuViewModel;
         /*public static MainView mainView;
         public static AuthenticationView authenticationView;*/
         public static UnitOfWork DataBase = new UnitOfWork();
@@ -47,11 +52,15 @@ namespace PlatinumKitchen.Models
             RegistrationView = new();
             RegistrationViewModel = new();
             RegistrationView.DataContext = RegistrationViewModel;
+
+            MenuView = new();
+            MenuViewModel = new();
+            MenuView.DataContext = MenuViewModel;
         }
 
-        public static void SetLanguage(string languag)
+        public static void SetLanguage()
         {
-            language = languag;
+            language = language == "English" ? "Russian" : "English";
             UpdateSettings();
         }
 
@@ -81,7 +90,16 @@ namespace PlatinumKitchen.Models
 
         internal static void SetMainPage(string namePage)
         {
-            throw new NotImplementedException();
+            switch (namePage)
+            {
+                case "Menu":
+                    MainViewModel.MainBodyPage = MenuView;
+                    break;
+                case "Admin":
+                default:
+                    MainViewModel.MainBodyPage = RegistrationView;
+                    break;
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7vqSA02CzuAZKtV8JoLkNYk46obThJYR59Xfuko2SwlnB3xOVDZTJWBQDXIgAF0N2oO4Cib4zfusX9+Pv7MIFQ==",
+  "dgSpecHash": "WvRBlncojlnCpF22IzeUxCE826gJP3rqXrhBGVO8jZz09e3jLMrHB8U3wKX50Msv1wuMnvZltsQFIsanO5RNsg==",
   "success": true,
   "projectFilePath": "D:\\study\\sem5\\CourseWork\\Solution\\PlatinumKitchen\\PlatinumKitchen\\PlatinumKitchen.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\Denis\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
     "C:\\Users\\Denis\\.nuget\\packages\\entityframework\\6.2.0\\entityframework.6.2.0.nupkg.sha512",
     "C:\\Users\\Denis\\.nuget\\packages\\entityframework.ru\\6.2.0\\entityframework.ru.6.2.0.nupkg.sha512",
+    "C:\\Users\\Denis\\.nuget\\packages\\fontawesome.sharp\\6.3.0\\fontawesome.sharp.6.3.0.nupkg.sha512",
     "C:\\Users\\Denis\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Denis\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
     "C:\\Users\\Denis\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",

@@ -1,5 +1,21 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <system:String x:Key="NotRegister">Не Зарегистрированны?</system:String>
+    <!-- Autorize -->
+    <system:String x:Key="Username">Имя пользователя</system:String>
+    <system:String x:Key="Password">Пароль</system:String>
+    <system:String x:Key="Registration">Регистрация</system:String>
+    <system:String x:Key="NotRegister">Не зарегистрированы?</system:String>
+    <system:String x:Key="Login">Логин</system:String>
+    <system:String x:Key="And">и</system:String>
+    <system:String x:Key="AlreadyRegistr">Уже зарегистрированы?</system:String>
+    <system:String x:Key="RepeatPassword">Повторите пароль</system:String>
+    <system:String x:Key="PasswordNotEquals">Пароли не совпадают</system:String>
+    <system:String x:Key="Email">Электронная почта</system:String>
+    <system:String x:Key="EmailError">Ошибка в адресе электронной почты</system:String>
+
+    <!-- Errors -->
+    <system:String x:Key="LoginError">Неверный логин</system:String>
+    <system:String x:Key="PasswordError">Неверный пароль</system:String>
+    <system:String x:Key="UserError">Пользователь не существует</system:String>
 </ResourceDictionary>

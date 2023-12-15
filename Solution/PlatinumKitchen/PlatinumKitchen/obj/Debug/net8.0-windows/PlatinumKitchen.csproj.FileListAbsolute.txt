@@ -146,3 +146,9 @@ D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\ref\PlatinumKitchen.dll
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\View\Autorize\RegistrationView.g.cs
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\View\Autorize\RegistrationView.baml
+D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\Assert\Styles\ColorsStyles.baml
+D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\Assert\Styles\Styles.baml
+D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\FontAwesome.Sharp.dll
+D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\App.baml
+D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\View\Restaurant\MenuView.g.cs
+D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\View\Restaurant\MenuView.baml

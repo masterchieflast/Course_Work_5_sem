@@ -66,23 +66,21 @@ namespace PlatinumKitchen.ViewModels.Autorize
             Controller.AutorizeView.WindowState= WindowState.Minimized;
         }
         
-        private DelegateCommand<string>? setAuthenticationViewPage;
+        
+        private DelegateCommand<string>? languageSwitch;
 
-        public ICommand SetAuthenticationViewPage
+        public ICommand LanguageSwitch
         {
             get
             {
-                if (setAuthenticationViewPage == null)
-                {
-                    setAuthenticationViewPage = new DelegateCommand<string>(SetAuthenticationPageView);
-                }
-                return setAuthenticationViewPage;
+                languageSwitch ??= new DelegateCommand<string>(LanguageSwitchF);
+                return languageSwitch;
             }
         }
 
-        private void SetAuthenticationPageView(string namePage)
+        private void LanguageSwitchF(string namePage)
         {
-            Controller.SetMainPage(namePage);
+            Controller.SetLanguage();
         }
     }
 }

@@ -16,12 +16,21 @@
     <Compile Update="View\Autorize\RegistrationView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\Restaurant\MenuView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Assert\Languages\English.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Assert\Languages\Russian.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Assert\Styles\ColorsStyles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Assert\Styles\Styles.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Autorize\AutorizeView.xaml">
@@ -34,6 +43,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Main\MainView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Restaurant\MenuView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
