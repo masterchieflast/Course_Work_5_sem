@@ -167,6 +167,8 @@ namespace PlatinumKitchen.ViewModels.Autorize
                         check_01 = false;
 
                         MessageBox.Show("Good");
+
+                        Controller.SetAuthenticationPage("Login");
                     }
                 }
 

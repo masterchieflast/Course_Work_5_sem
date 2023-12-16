@@ -16,7 +16,15 @@ namespace PlatinumKitchen.Infasturcture
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             ImageSourceConverter imageConverter = new ImageSourceConverter();
-            return imageConverter.ConvertFromString(Controller.Uri + $"/{values[1]}/{values[0]}.jpg");
+            try
+            {
+                return imageConverter.ConvertFromString(Controller.Uri + $"/{values[1]}/{values[0]}.jpg");
+            }
+            catch (Exception)
+            {
+                return imageConverter.ConvertFromString(Controller.Uri + $"/{values[1]}/0.jpg");
+            }
+
         }
 
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)

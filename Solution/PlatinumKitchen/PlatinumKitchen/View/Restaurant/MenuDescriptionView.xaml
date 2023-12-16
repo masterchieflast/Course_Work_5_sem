@@ -1,0 +1,147 @@
+﻿<Page x:Class="PlatinumKitchen.View.Restaurant.MenuDescriptionView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PlatinumKitchen.View.Restaurant"
+      xmlns:local1="clr-namespace:PlatinumKitchen.Infasturcture"
+      mc:Ignorable="d" d:DesignWidth="800"
+      Title="MenuDescriptionView"   
+      xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp" 
+      Background="Transparent" Height="596"
+      >
+
+    <Page.Resources>
+        <local1:ImagePathConverter x:Key="ImagePathConverter" />
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50px" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border BorderBrush="{DynamicResource ColorContent}" BorderThickness="0,0,0,1">
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button
+                Background="Transparent"
+                x:Name="MainSettingsNavigator"
+                Grid.Row="0"
+                Grid.Column="0"
+                Width="40px"
+                Height="40px"
+                Margin="15,0,0,0"
+                HorizontalAlignment="Left"
+                BorderThickness="0"
+                Command="{Binding SetMainPage}"
+                CommandParameter="MainSettings">
+                    <StackPanel>
+                        <fa:IconImage Icon="LeftLong" />
+                    </StackPanel>
+                </Button>
+                <StackPanel
+                Grid.Row="0"
+                Grid.Column="2"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
+                    <Button
+                        Background="Transparent"
+                        x:Name="EditNews"
+                        Width="40px"
+                        Height="40px"
+                        Margin="0,0,15,0"
+                        BorderThickness="0"
+                        Command="{Binding Edit}">
+                        <StackPanel>
+                            <fa:IconImage Icon="Edit" />
+                        </StackPanel>
+                    </Button>
+                    <Button
+                        x:Name="DeleteNews"
+                        Width="37px"
+                        Height="40px"
+                        Margin="0,0,15,0"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Command="{Binding Delete}">
+                            <StackPanel>
+                                <fa:IconImage Icon="TrashAlt" />
+                            </StackPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Rectangle
+                Margin="40,10,40,0">
+                <Rectangle.Fill>
+                    <ImageBrush>
+                        <ImageBrush.ImageSource>
+                            <MultiBinding Converter="{StaticResource ImagePathConverter}" Mode="TwoWay">
+                                <Binding Path="MenuId" UpdateSourceTrigger="PropertyChanged"/>
+                                <Binding Source="Assert/Images/Menu"/>
+                            </MultiBinding>
+                        </ImageBrush.ImageSource>
+                    </ImageBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" VerticalAlignment="Center" >
+                    <TextBox
+                        x:Name="Name"
+                        Margin="30,52,30,0"
+                        BorderThickness="0"
+                        Background="Transparent"
+                        FontSize="18"
+                        Foreground="White"
+                        IsHitTestVisible="False"
+                        Text="{Binding Menu.Name, Mode=TwoWay}"
+                        TextAlignment="Center" />
+                    <TextBlock
+                        Height="30"
+                        Margin="20,0,0,0"
+                        VerticalAlignment="Center"
+                        Foreground="White"
+                        Text="{Binding Menu.Price, Mode=TwoWay}"
+                        TextAlignment="Center" />
+                    <TextBox
+                        x:Name="Description"
+                        Height="130"
+                        Margin="30,12,30,30"
+                        AcceptsReturn="True"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        FontSize="14"
+                        Foreground="White"
+                        IsHitTestVisible="False"
+                        Text="{Binding Menu.Description, Mode=TwoWay}"
+                        TextWrapping="Wrap" />
+                </StackPanel>
+                <Button
+                x:Name="ToSave"
+                Grid.Row="1"
+                Width="115"
+                Height="40"
+                Margin="0,0,10,0"
+                Background="{DynamicResource Card}"
+                BorderThickness="0"
+                Command="{Binding Save}"
+                Content="{DynamicResource Save}"
+                Foreground="{DynamicResource ColorContent}"
+                Visibility="Hidden" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

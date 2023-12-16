@@ -16,7 +16,13 @@
     <Compile Update="View\Autorize\RegistrationView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\Restaurant\MenuDescriptionView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\Restaurant\MenuView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Restaurant\ReportView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -45,7 +51,13 @@
     <Page Update="View\Main\MainView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="View\Restaurant\MenuDescriptionView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\Restaurant\MenuView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Restaurant\ReportView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

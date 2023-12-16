@@ -31,6 +31,10 @@ namespace PlatinumKitchen.Models
         public static MainViewModel MainViewModel;
         public static MenuView MenuView;
         public static MenuViewModel MenuViewModel;
+        public static MenuDescriptionView MenuDescriptionView;
+        public static MenuDescriptionViewModel MenuDescriptionViewModel;
+        public static ReportView ReportView;
+        public static ReportViewModel ReportViewModel;
         /*public static MainView mainView;
         public static AuthenticationView authenticationView;*/
         public static UnitOfWork DataBase = new UnitOfWork();
@@ -56,6 +60,16 @@ namespace PlatinumKitchen.Models
             MenuView = new();
             MenuViewModel = new();
             MenuView.DataContext = MenuViewModel;
+
+            MenuDescriptionView = new();
+            MenuDescriptionViewModel = new();
+            MenuDescriptionView.DataContext = MenuDescriptionViewModel;
+
+            ReportView = new();
+            ReportViewModel = new();
+            ReportView.DataContext = ReportViewModel;
+
+            UpdateData();
         }
 
         public static void SetLanguage()
@@ -72,6 +86,13 @@ namespace PlatinumKitchen.Models
 
             ResourceDictionary? resourceDictLang = Application.LoadComponent(uriLanguage) as ResourceDictionary;
             Application.Current.Resources.MergedDictionaries.Add(resourceDictLang);
+        }
+
+        public static void UpdateData()
+        {
+            MenuViewModel._menuBase = DataBase.MenuRepository.GetAll().ToList();
+            MenuViewModel.UpdateFilteredMenu();
+            UpdateSettings();
         }
 
         public static void SetAuthenticationPage(string namePage)
@@ -94,6 +115,12 @@ namespace PlatinumKitchen.Models
             {
                 case "Menu":
                     MainViewModel.MainBodyPage = MenuView;
+                    break;
+                case "MenuDescription":
+                    MainViewModel.MainBodyPage = MenuDescriptionView;
+                    break;
+                case "Report":
+                    MainViewModel.MainBodyPage = ReportView;
                     break;
                 case "Admin":
                 default:

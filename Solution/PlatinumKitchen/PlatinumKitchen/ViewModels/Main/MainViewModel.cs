@@ -21,6 +21,8 @@ namespace PlatinumKitchen.ViewModels
         private DelegateCommand? minimizeView;
         private DelegateCommand? maximizeView;
 
+        private DelegateCommand<string>? showMainViewCommand;
+
         public Page MainBodyPage
         {
             get { return mainBodyPage; }
@@ -34,7 +36,6 @@ namespace PlatinumKitchen.ViewModels
             }
         }
 
-        private DelegateCommand<string>? showMenuViewCommand;
         public ICommand CloseView
         {
             get
@@ -83,15 +84,15 @@ namespace PlatinumKitchen.ViewModels
             else Controller.MainView.WindowState = WindowState.Normal;
         }
 
-        public ICommand ShowMenuViewCommand
+        public ICommand ShowMainViewCommand
         {
             get
             {
-                if (showMenuViewCommand == null)
+                if (showMainViewCommand == null)
                 {
-                    showMenuViewCommand = new DelegateCommand<string>(SetMainPageView);
+                    showMainViewCommand = new DelegateCommand<string>(SetMainPageView);
                 }
-                return showMenuViewCommand;
+                return showMainViewCommand;
             }
         }
         private void SetMainPageView(string namePage)
