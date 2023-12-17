@@ -6,10 +6,11 @@ D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\PlatinumKitchen.pdb
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\Azure.Core.dll
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\Azure.Identity.dll
-D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\EntityFramework.SqlServer.dll
-D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\EntityFramework.dll
+D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\DynamicDataDisplay.dll
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\FontAwesome.Sharp.dll
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\Humanizer.dll
+D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\LiveCharts.dll
+D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\LiveCharts.Wpf.dll
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\Microsoft.Bcl.AsyncInterfaces.dll
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\Microsoft.CodeAnalysis.dll
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\Microsoft.CodeAnalysis.CSharp.dll
@@ -51,8 +52,6 @@ D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\System.Memory.Data.dll
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\System.Runtime.Caching.dll
-D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\ru\EntityFramework.SqlServer.resources.dll
-D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\ru\EntityFramework.resources.dll
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\cs\Microsoft.CodeAnalysis.resources.dll
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\de\Microsoft.CodeAnalysis.resources.dll
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\es\Microsoft.CodeAnalysis.resources.dll
@@ -130,6 +129,7 @@ D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\View\Main\MainView.g.cs
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\View\Restaurant\MenuDescriptionView.g.cs
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\View\Restaurant\MenuView.g.cs
+D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\View\Restaurant\ReportView.g.cs
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\App.g.cs
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\PlatinumKitchen_Content.g.cs
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
@@ -142,6 +142,7 @@ D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\View\Autorize\RegistrationView.baml
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\View\Restaurant\MenuDescriptionView.baml
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\View\Restaurant\MenuView.baml
+D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\View\Restaurant\ReportView.baml
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\PlatinumKitchen.g.resources
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\PlatinumKitchen.GeneratedMSBuildEditorConfig.editorconfig
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\PlatinumKitchen.AssemblyInfoInputs.cache
@@ -154,5 +155,5 @@ D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\PlatinumKitchen.pdb
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\PlatinumKitchen.genruntimeconfig.cache
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\ref\PlatinumKitchen.dll
-D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\View\Restaurant\ReportView.g.cs
-D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\View\Restaurant\ReportView.baml
+D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\EntityFramework.SqlServer.dll
+D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\bin\Debug\net8.0-windows\EntityFramework.dll

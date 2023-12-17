@@ -22,7 +22,7 @@ namespace PlatinumKitchen.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("PlatinumKitchen.Entityes.Customers", b =>
+            modelBuilder.Entity("PlatinumKitchen.Models.Database.Entityes.Customers", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -59,7 +59,7 @@ namespace PlatinumKitchen.Migrations
                     b.ToTable("Customers");
                 });
 
-            modelBuilder.Entity("PlatinumKitchen.Entityes.Employees", b =>
+            modelBuilder.Entity("PlatinumKitchen.Models.Database.Entityes.Employees", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -103,7 +103,7 @@ namespace PlatinumKitchen.Migrations
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("PlatinumKitchen.Entityes.Menu", b =>
+            modelBuilder.Entity("PlatinumKitchen.Models.Database.Entityes.Menu", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -135,7 +135,7 @@ namespace PlatinumKitchen.Migrations
                     b.ToTable("Menu");
                 });
 
-            modelBuilder.Entity("PlatinumKitchen.Entityes.OrderItems", b =>
+            modelBuilder.Entity("PlatinumKitchen.Models.Database.Entityes.OrderItems", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -149,9 +149,6 @@ namespace PlatinumKitchen.Migrations
                     b.Property<string>("Notes")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("OrderId")
-                        .HasColumnType("int");
 
                     b.Property<int>("OrdersId")
                         .HasColumnType("int");
@@ -168,16 +165,13 @@ namespace PlatinumKitchen.Migrations
                     b.ToTable("OrderItems");
                 });
 
-            modelBuilder.Entity("PlatinumKitchen.Entityes.Orders", b =>
+            modelBuilder.Entity("PlatinumKitchen.Models.Database.Entityes.Orders", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("CustomerId")
-                        .HasColumnType("int");
 
                     b.Property<int>("CustomersId")
                         .HasColumnType("int");
@@ -202,9 +196,6 @@ namespace PlatinumKitchen.Migrations
                     b.Property<int>("TablesId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("WaiterId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CustomersId");
@@ -216,7 +207,7 @@ namespace PlatinumKitchen.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("PlatinumKitchen.Entityes.Reviews", b =>
+            modelBuilder.Entity("PlatinumKitchen.Models.Database.Entityes.Reviews", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -227,9 +218,6 @@ namespace PlatinumKitchen.Migrations
                     b.Property<string>("Notes")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("OrderId")
-                        .HasColumnType("int");
 
                     b.Property<int>("OrdersId")
                         .HasColumnType("int");
@@ -244,7 +232,7 @@ namespace PlatinumKitchen.Migrations
                     b.ToTable("Reviews");
                 });
 
-            modelBuilder.Entity("PlatinumKitchen.Entityes.Tables", b =>
+            modelBuilder.Entity("PlatinumKitchen.Models.Database.Entityes.Tables", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -269,13 +257,13 @@ namespace PlatinumKitchen.Migrations
                     b.ToTable("Tables");
                 });
 
-            modelBuilder.Entity("PlatinumKitchen.Entityes.OrderItems", b =>
+            modelBuilder.Entity("PlatinumKitchen.Models.Database.Entityes.OrderItems", b =>
                 {
-                    b.HasOne("PlatinumKitchen.Entityes.Menu", "Menu")
+                    b.HasOne("PlatinumKitchen.Models.Database.Entityes.Menu", "Menu")
                         .WithMany("OrderItems")
                         .HasForeignKey("MenuId");
 
-                    b.HasOne("PlatinumKitchen.Entityes.Orders", "Orders")
+                    b.HasOne("PlatinumKitchen.Models.Database.Entityes.Orders", "Orders")
                         .WithMany("OrderItems")
                         .HasForeignKey("OrdersId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -286,21 +274,21 @@ namespace PlatinumKitchen.Migrations
                     b.Navigation("Orders");
                 });
 
-            modelBuilder.Entity("PlatinumKitchen.Entityes.Orders", b =>
+            modelBuilder.Entity("PlatinumKitchen.Models.Database.Entityes.Orders", b =>
                 {
-                    b.HasOne("PlatinumKitchen.Entityes.Customers", "Customers")
+                    b.HasOne("PlatinumKitchen.Models.Database.Entityes.Customers", "Customers")
                         .WithMany("Orders")
                         .HasForeignKey("CustomersId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PlatinumKitchen.Entityes.Employees", "Employees")
+                    b.HasOne("PlatinumKitchen.Models.Database.Entityes.Employees", "Employees")
                         .WithMany("Orders")
                         .HasForeignKey("EmployeesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PlatinumKitchen.Entityes.Tables", "Tables")
+                    b.HasOne("PlatinumKitchen.Models.Database.Entityes.Tables", "Tables")
                         .WithMany("Orders")
                         .HasForeignKey("TablesId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -313,9 +301,9 @@ namespace PlatinumKitchen.Migrations
                     b.Navigation("Tables");
                 });
 
-            modelBuilder.Entity("PlatinumKitchen.Entityes.Reviews", b =>
+            modelBuilder.Entity("PlatinumKitchen.Models.Database.Entityes.Reviews", b =>
                 {
-                    b.HasOne("PlatinumKitchen.Entityes.Orders", "Orders")
+                    b.HasOne("PlatinumKitchen.Models.Database.Entityes.Orders", "Orders")
                         .WithMany("Reviews")
                         .HasForeignKey("OrdersId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -324,29 +312,29 @@ namespace PlatinumKitchen.Migrations
                     b.Navigation("Orders");
                 });
 
-            modelBuilder.Entity("PlatinumKitchen.Entityes.Customers", b =>
+            modelBuilder.Entity("PlatinumKitchen.Models.Database.Entityes.Customers", b =>
                 {
                     b.Navigation("Orders");
                 });
 
-            modelBuilder.Entity("PlatinumKitchen.Entityes.Employees", b =>
+            modelBuilder.Entity("PlatinumKitchen.Models.Database.Entityes.Employees", b =>
                 {
                     b.Navigation("Orders");
                 });
 
-            modelBuilder.Entity("PlatinumKitchen.Entityes.Menu", b =>
+            modelBuilder.Entity("PlatinumKitchen.Models.Database.Entityes.Menu", b =>
                 {
                     b.Navigation("OrderItems");
                 });
 
-            modelBuilder.Entity("PlatinumKitchen.Entityes.Orders", b =>
+            modelBuilder.Entity("PlatinumKitchen.Models.Database.Entityes.Orders", b =>
                 {
                     b.Navigation("OrderItems");
 
                     b.Navigation("Reviews");
                 });
 
-            modelBuilder.Entity("PlatinumKitchen.Entityes.Tables", b =>
+            modelBuilder.Entity("PlatinumKitchen.Models.Database.Entityes.Tables", b =>
                 {
                     b.Navigation("Orders");
                 });
