@@ -29,7 +29,7 @@
     <SolidColorBrush x:Key="plainTextColor2" Color="#7C80C2"/>
     <SolidColorBrush x:Key="plainTextColor3" Color="#7376BD"/>
     <!--Panel Colors-->
-    <SolidColorBrush x:Key="panelColor" Color="#200F53"/>
-    <SolidColorBrush x:Key="panelOverColor" Color="#281269"/>
-    <SolidColorBrush x:Key="panelActiveColor" Color="#2B1372"/>
+    <SolidColorBrush x:Key="panelColor" Color="#71b5c0"/>
+    <SolidColorBrush x:Key="panelOverColor" Color="#606d7d"/>
+    <SolidColorBrush x:Key="panelActiveColor" Color="#4a505e"/>
 </ResourceDictionary>

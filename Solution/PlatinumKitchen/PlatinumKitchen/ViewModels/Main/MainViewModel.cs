@@ -10,6 +10,7 @@ using PlatinumKitchen.Utilities.Commands;
 using System.Windows.Input;
 using System.Windows;
 using System.Windows.Controls;
+using System.Reflection.Metadata;
 
 namespace PlatinumKitchen.ViewModels
 {
@@ -35,7 +36,7 @@ namespace PlatinumKitchen.ViewModels
                 OnPropertyChanged("mainBodyPage");
             }
         }
-
+        
         public ICommand CloseView
         {
             get

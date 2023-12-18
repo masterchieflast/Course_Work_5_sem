@@ -159,9 +159,9 @@ namespace PlatinumKitchen.ViewModels.Autorize
                             First_Name = this.Login,
                             Last_Name = this.Login,
                             Login = this.Login,
-                            Password = pas,
+                            Password = UnsecureString.Encode(pas),
                             Email = this.Email,
-                            Phone_Number = "+375298477777"
+                            Phone_Number = "-"
                         };
                         Controller.DataBase.CustomerRepository.Create(user);
                         check_01 = false;

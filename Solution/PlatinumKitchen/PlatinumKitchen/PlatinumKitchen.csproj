@@ -22,6 +22,8 @@
     <None Remove="Assert\Images\language.png" />
     <None Remove="Assert\Images\logo.png" />
     <None Remove="Assert\Images\mail-icon.png" />
+    <None Remove="Assert\Images\main-view.jpg" />
+    <None Remove="Assert\Images\mainView.jpg" />
     <None Remove="Assert\Images\Menu\1.jpg" />
     <None Remove="Assert\Images\Menu\2.jpg" />
     <None Remove="Assert\Images\Menu\3.jpg" />
@@ -41,6 +43,8 @@
     <PackageReference Include="EntityFramework" Version="6.4.4" />
     <PackageReference Include="FontAwesome.Sharp" Version="6.3.0" />
     <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+    <PackageReference Include="MaterialDesignColors" Version="2.1.4" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
@@ -51,7 +55,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="View\Admin\" />
     <Folder Include="View\Employee\" />
   </ItemGroup>
 
@@ -61,6 +64,7 @@
     <Resource Include="Assert\Images\language.png" />
     <Resource Include="Assert\Images\logo.png" />
     <Resource Include="Assert\Images\mail-icon.png" />
+    <Resource Include="Assert\Images\main-view.jpg" />
     <Resource Include="Assert\Images\Menu\1.jpg" />
     <Resource Include="Assert\Images\Menu\2.jpg" />
     <Resource Include="Assert\Images\Menu\3.jpg" />

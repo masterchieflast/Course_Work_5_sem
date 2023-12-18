@@ -97,7 +97,6 @@ namespace PlatinumKitchen.ViewModels.Autorize
 
             if (String.IsNullOrEmpty(UnsecureString.ConvertToUnsecureString(Password)))
             {
-
                 MessageError += check_01 ?
                 Application.Current.FindResource("PasswordError").ToString()
                 : Application.Current.FindResource("And").ToString() + ' ' + Application.Current.FindResource("PasswordError").ToString();
@@ -106,7 +105,7 @@ namespace PlatinumKitchen.ViewModels.Autorize
 
             if (check_01 && check_02)
             {
-                var pas = UnsecureString.ConvertToUnsecureString(Password);
+                var pas = UnsecureString.Encode(UnsecureString.ConvertToUnsecureString(Password));
 
                 if (Login.Length >= 9 && Login[..9].Equals("employees", StringComparison.CurrentCultureIgnoreCase))
                 {

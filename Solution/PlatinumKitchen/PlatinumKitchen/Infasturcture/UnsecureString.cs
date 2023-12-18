@@ -26,5 +26,11 @@ namespace PlatinumKitchen.Infasturcture
                 Marshal.ZeroFreeGlobalAllocUnicode(unmanagedString);
             }
         }
+
+        public static string Encode(string s)
+        {
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(s);
+            return System.Convert.ToBase64String(plainTextBytes);
+        }
     }
 }

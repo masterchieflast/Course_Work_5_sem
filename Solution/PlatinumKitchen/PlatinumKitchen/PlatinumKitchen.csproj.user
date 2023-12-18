@@ -7,6 +7,15 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="View\Admin\CustomersView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Admin\EmployeesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Admin\TableView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\Autorize\AutorizeView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -22,7 +31,7 @@
     <Compile Update="View\Restaurant\MenuView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\Restaurant\ReportView.xaml.cs">
+    <Compile Update="View\Admin\ReportView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -37,6 +46,15 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Assert\Styles\Styles.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Admin\CustomersView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Admin\EmployeesView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Admin\TableView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Autorize\AutorizeView.xaml">
@@ -57,7 +75,7 @@
     <Page Update="View\Restaurant\MenuView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="View\Restaurant\ReportView.xaml">
+    <Page Update="View\Admin\ReportView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

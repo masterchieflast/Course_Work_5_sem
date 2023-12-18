@@ -1,8 +1,10 @@
 ﻿using PlatinumKitchen.Models.Database;
 using PlatinumKitchen.Models.Database.Entityes;
+using PlatinumKitchen.View.Admin;
 using PlatinumKitchen.View.Autorize;
 using PlatinumKitchen.View.Restaurant;
 using PlatinumKitchen.ViewModels;
+using PlatinumKitchen.ViewModels.Admin;
 using PlatinumKitchen.ViewModels.Autorize;
 using PlatinumKitchen.ViewModels.Restaurant;
 using System;
@@ -35,6 +37,12 @@ namespace PlatinumKitchen.Models
         public static MenuDescriptionViewModel MenuDescriptionViewModel;
         public static ReportView ReportView;
         public static ReportViewModel ReportViewModel;
+        public static CustomersView CustomersView;
+        public static CustomersViewModel CustomersViewModel;
+        public static EmployeesView EmployeesView;
+        public static EmployeesViewModel EmployeesViewModel;
+        public static TableView TablesView;
+        public static TableViewModel TableViewModel;
         /*public static MainView mainView;
         public static AuthenticationView authenticationView;*/
         public static UnitOfWork DataBase = new UnitOfWork();
@@ -68,6 +76,20 @@ namespace PlatinumKitchen.Models
             ReportView = new();
             ReportViewModel = new();
             ReportView.DataContext = ReportViewModel;
+
+            CustomersView = new();
+            CustomersViewModel = new();
+            CustomersView.DataContext = CustomersViewModel;
+
+
+            EmployeesView = new();
+            EmployeesViewModel = new();
+            EmployeesView.DataContext = EmployeesViewModel;
+
+
+            TablesView = new();
+            TableViewModel = new();
+            TablesView.DataContext = TableViewModel;
 
             UpdateData();
         }
@@ -109,10 +131,19 @@ namespace PlatinumKitchen.Models
             }
         }
 
-        internal static void SetMainPage(string namePage)
+        public static void SetMainPage(string namePage)
         {
             switch (namePage)
             {
+                case "Customers":
+                    MainViewModel.MainBodyPage = CustomersView;
+                    break;
+                case "Tables":
+                    MainViewModel.MainBodyPage = TablesView;
+                    break;
+                case "Employees":
+                    MainViewModel.MainBodyPage = EmployeesView;
+                    break;
                 case "Menu":
                     MainViewModel.MainBodyPage = MenuView;
                     break;
