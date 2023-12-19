@@ -116,8 +116,10 @@ namespace PlatinumKitchen.ViewModels.Autorize
                         {
                             Controller.UserE = Controller.DataBase.EmployeeRepository.Get(user.Id);
                             Controller.AutorizeView.Hide();
+                            Controller.Login();
                             App.StartMainView();
                             check_01 = false;
+                            break;
                         }
                     }
                 }
@@ -130,8 +132,10 @@ namespace PlatinumKitchen.ViewModels.Autorize
                         {
                             Controller.User = Controller.DataBase.CustomerRepository.Get(user.Id);
                             Controller.AutorizeView.Hide();
+                            Controller.Login();
                             App.StartMainView();
                             check_01 = false;
+                            break;
                         }
                     }
                 }

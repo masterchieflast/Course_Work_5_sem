@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\App.xaml
-16-1565342441
+17-936340071
 1-2120279128
-552075636952
+591591193639
 2452087506367
-Assert\Languages\English.xaml;Assert\Languages\Russian.xaml;Assert\Styles\ColorsStyles.xaml;Assert\Styles\Styles.xaml;CustomControls\BindablePasswordBox.xaml;View\Admin\CustomersView.xaml;View\Admin\EmployeesView.xaml;View\Admin\ReportView.xaml;View\Admin\TableView.xaml;View\Autorize\AutorizeView.xaml;View\Autorize\LoginView.xaml;View\Autorize\RegistrationView.xaml;View\Main\MainView.xaml;View\Restaurant\MenuDescriptionView.xaml;View\Restaurant\MenuView.xaml;View\Restaurant\OrdersView.xaml;
+Assert\Languages\English.xaml;Assert\Languages\Russian.xaml;Assert\Styles\ColorsStyles.xaml;Assert\Styles\Styles.xaml;CustomControls\BindablePasswordBox.xaml;View\Admin\CustomersView.xaml;View\Admin\EmployeesView.xaml;View\Admin\ReportView.xaml;View\Admin\TableView.xaml;View\Autorize\AutorizeView.xaml;View\Autorize\LoginView.xaml;View\Autorize\RegistrationView.xaml;View\Main\MainView.xaml;View\Restaurant\MenuDescriptionView.xaml;View\Restaurant\MenuView.xaml;View\Restaurant\OrdersListView.xaml;View\Restaurant\OrdersView.xaml;
 
 True
 

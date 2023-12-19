@@ -168,3 +168,5 @@ D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\View\Admin\TableView.baml
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\View\Restaurant\OrdersView.g.cs
 D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\View\Restaurant\OrdersView.baml
+D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\View\Restaurant\OrdersListView.g.cs
+D:\study\sem5\CourseWork\Solution\PlatinumKitchen\PlatinumKitchen\obj\Debug\net8.0-windows\View\Restaurant\OrdersListView.baml

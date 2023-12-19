@@ -190,9 +190,6 @@ namespace PlatinumKitchen.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TableId")
-                        .HasColumnType("int");
-
                     b.Property<int>("TablesId")
                         .HasColumnType("int");
 

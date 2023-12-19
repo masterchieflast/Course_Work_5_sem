@@ -314,6 +314,16 @@
                                 <TextBlock Style="{StaticResource menuButtonText}" Text="Orders" />
                             </StackPanel>
                         </RadioButton>
+                        <RadioButton
+                            Command="{Binding ShowMainViewCommand}"
+                            CommandParameter="OrdersList"
+                            Style="{StaticResource menuButton}"
+                            Tag="{StaticResource color8}">
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="CartFlatbed" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Style="{StaticResource menuButtonText}" Text="Orders List" />
+                            </StackPanel>
+                        </RadioButton>
                     </StackPanel>
                 </Border>
 

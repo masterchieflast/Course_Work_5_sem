@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PlatinumKitchen")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ff0d5d52acb2210bc2e8bfa95ea5281cb613946")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("PlatinumKitchen")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PlatinumKitchen")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

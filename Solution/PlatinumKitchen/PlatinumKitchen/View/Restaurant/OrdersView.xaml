@@ -379,8 +379,8 @@
             <Button
                 Grid.Row="4"
                 Margin="5"
-                Command="{Binding LogOutCommand}"
-                Content="Log Out"
+                Command="{Binding CheakStatus}"
+                Content="Cheak Status"
                 Style="{StaticResource blackThemeBtn}" />
         </Grid>
 
@@ -395,63 +395,47 @@
                 </Grid.RowDefinitions>
                 <Border
                     Grid.Row="0"
-                    MinHeight="100"
+                    MinHeight="40"
                     Background="Gray"
                     BorderBrush="DarkSlateGray"
                     BorderThickness="3"
                     CornerRadius="10">
                     <StackPanel>
-                        <Label Style="{StaticResource whiteFonts}">Dine in</Label>
                         <Label
-                            Content="{Binding Date}"
-                            ContentStringFormat="Started at {0}"
-                            Style="{StaticResource whiteFonts}" />
-                        <Label
-                            Content="{Binding TableName}"
-                            ContentStringFormat="Table No: {0}"
+                            Content="{Binding Order.Id}"
+                            ContentStringFormat="Order Id: {0}"
                             Style="{StaticResource whiteFonts}" />
                     </StackPanel>
                 </Border>
                 <ListView
+                    x:Name="listPanel"
                     Grid.Row="1"
                     Margin="5"
-                    ItemsSource="{Binding OrderLines}"
+                    ItemsSource="{Binding Orderss, UpdateSourceTrigger=PropertyChanged}"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                     <ListView.View>
                         <GridView>
                             <GridView.Columns>
                                 <!--  Qty header  -->
                                 <GridViewColumn
-                                    Width="90"
+                                    Width="60"
                                     Header="Qty"
                                     HeaderContainerStyle="{StaticResource gridHeaderStyle}">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBlock FontSize="36" Text="{Binding Quantity}" />
+                                            <TextBlock FontSize="36" Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" />
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
 
                                 <!--  Product header  -->
                                 <GridViewColumn
-                                    Width="300"
+                                    Width="400"
                                     Header="Product"
                                     HeaderContainerStyle="{StaticResource gridHeaderStyle}">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBlock FontSize="18" Text="{Binding SelectedProduct.Name}" />
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-
-                                <!--  Total header  -->
-                                <GridViewColumn
-                                    Width="130"
-                                    Header="Total"
-                                    HeaderContainerStyle="{StaticResource gridHeaderStyle}">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock FontSize="22" Text="{Binding TotalPrice, StringFormat='{}RM {0:F2}'}" />
+                                            <TextBlock FontSize="18" Text="{Binding Menu.Name}" />
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>

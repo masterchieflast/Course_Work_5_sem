@@ -20,6 +20,8 @@ namespace PlatinumKitchen.Models
     {
         public static string Uri = "/study/sem5/CourseWork/Solution/PlatinumKitchen/PlatinumKitchen";
 
+        public static UnitOfWork DataBase = new UnitOfWork();
+
         public static Customers? User;
         public static Employees? UserE;
         public static LoginViewModel LoginViewModel;
@@ -28,7 +30,6 @@ namespace PlatinumKitchen.Models
         public static RegistrationView RegistrationView;
         public static AutorizeViewModel AutorizeViewModel; 
         public static AutorizeView AutorizeView;
-        //public static MainViewModel MainViewModel;
         public static MainView MainView;
         public static MainViewModel MainViewModel;
         public static MenuView MenuView;
@@ -45,9 +46,9 @@ namespace PlatinumKitchen.Models
         public static TableViewModel TableViewModel;
         public static OrdersView OrdersView;
         public static OrdersViewModel OrdersViewModel;
-        /*public static MainView mainView;
-        public static AuthenticationView authenticationView;*/
-        public static UnitOfWork DataBase = new UnitOfWork();
+        public static OrdersListView OrdersListView;
+        public static OrdersListViewModel OrdersListViewModel;
+
 
         private static string language;
 
@@ -93,11 +94,18 @@ namespace PlatinumKitchen.Models
             TableViewModel = new();
             TablesView.DataContext = TableViewModel;
 
+            OrdersListView = new();
+            OrdersListViewModel = new();
+            OrdersListView.DataContext = OrdersListViewModel;
+
+            UpdateData();
+        }
+
+        public static void Login()
+        {
             OrdersView = new();
             OrdersViewModel = new();
             OrdersView.DataContext = OrdersViewModel;
-
-            UpdateData();
         }
 
         public static void SetLanguage()
@@ -141,6 +149,9 @@ namespace PlatinumKitchen.Models
         {
             switch (namePage)
             {
+                case "OrdersList":
+                    MainViewModel.MainBodyPage = OrdersListView;
+                    break;
                 case "Orders":
                     MainViewModel.MainBodyPage = OrdersView;
                     break;
