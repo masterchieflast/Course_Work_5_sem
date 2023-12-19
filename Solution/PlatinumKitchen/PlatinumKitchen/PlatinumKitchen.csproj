@@ -18,15 +18,20 @@
 
   <ItemGroup>
     <None Remove="Assert\Images\back-image.jpg" />
+    <None Remove="Assert\Images\dessert.jpg" />
+    <None Remove="Assert\Images\drinks.png" />
     <None Remove="Assert\Images\key-icon.png" />
     <None Remove="Assert\Images\language.png" />
     <None Remove="Assert\Images\logo.png" />
     <None Remove="Assert\Images\mail-icon.png" />
     <None Remove="Assert\Images\main-view.jpg" />
+    <None Remove="Assert\Images\mainDish.jpg" />
     <None Remove="Assert\Images\mainView.jpg" />
     <None Remove="Assert\Images\Menu\1.jpg" />
     <None Remove="Assert\Images\Menu\2.jpg" />
     <None Remove="Assert\Images\Menu\3.jpg" />
+    <None Remove="Assert\Images\others.jpg" />
+    <None Remove="Assert\Images\snack.jpg" />
     <None Remove="Assert\Images\user-icon.png" />
   </ItemGroup>
 
@@ -60,14 +65,19 @@
 
   <ItemGroup>
     <Resource Include="Assert\Images\back-image.jpg" />
+    <Resource Include="Assert\Images\dessert.jpg" />
+    <Resource Include="Assert\Images\drinks.png" />
     <Resource Include="Assert\Images\key-icon.png" />
     <Resource Include="Assert\Images\language.png" />
     <Resource Include="Assert\Images\logo.png" />
     <Resource Include="Assert\Images\mail-icon.png" />
     <Resource Include="Assert\Images\main-view.jpg" />
+    <Resource Include="Assert\Images\mainDish.jpg" />
     <Resource Include="Assert\Images\Menu\1.jpg" />
     <Resource Include="Assert\Images\Menu\2.jpg" />
     <Resource Include="Assert\Images\Menu\3.jpg" />
+    <Resource Include="Assert\Images\others.jpg" />
+    <Resource Include="Assert\Images\snack.jpg" />
     <Resource Include="Assert\Images\user-icon.png" />
   </ItemGroup>
 

@@ -34,6 +34,9 @@
     <Compile Update="View\Admin\ReportView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\Restaurant\OrdersView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Assert\Languages\English.xaml">
@@ -76,6 +79,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Admin\ReportView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Restaurant\OrdersView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

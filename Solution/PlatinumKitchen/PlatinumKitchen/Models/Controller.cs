@@ -43,6 +43,8 @@ namespace PlatinumKitchen.Models
         public static EmployeesViewModel EmployeesViewModel;
         public static TableView TablesView;
         public static TableViewModel TableViewModel;
+        public static OrdersView OrdersView;
+        public static OrdersViewModel OrdersViewModel;
         /*public static MainView mainView;
         public static AuthenticationView authenticationView;*/
         public static UnitOfWork DataBase = new UnitOfWork();
@@ -91,6 +93,10 @@ namespace PlatinumKitchen.Models
             TableViewModel = new();
             TablesView.DataContext = TableViewModel;
 
+            OrdersView = new();
+            OrdersViewModel = new();
+            OrdersView.DataContext = OrdersViewModel;
+
             UpdateData();
         }
 
@@ -135,6 +141,9 @@ namespace PlatinumKitchen.Models
         {
             switch (namePage)
             {
+                case "Orders":
+                    MainViewModel.MainBodyPage = OrdersView;
+                    break;
                 case "Customers":
                     MainViewModel.MainBodyPage = CustomersView;
                     break;
