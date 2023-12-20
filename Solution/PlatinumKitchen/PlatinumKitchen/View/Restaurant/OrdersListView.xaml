@@ -104,17 +104,6 @@
                 RowStyle="{DynamicResource DataGridRowStyle1}"
                 Style="{DynamicResource DataGridStyle1}">
                 <DataGrid.Columns>
-                    <DataGridCheckBoxColumn
-                        Width="auto"
-                        CanUserResize="False"
-                        ElementStyle="{StaticResource CheckBoxStyle1}"
-                        Header="C">
-                        <DataGridCheckBoxColumn.HeaderTemplate>
-                            <DataTemplate>
-                                <CheckBox Style="{StaticResource CheckBoxStyle1}" />
-                            </DataTemplate>
-                        </DataGridCheckBoxColumn.HeaderTemplate>
-                    </DataGridCheckBoxColumn>
                     <DataGridTextColumn
                         Width="auto"
                         Binding="{Binding Id}"
@@ -158,6 +147,14 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
+                                    <Button
+                                        Margin="5,0,0,0"
+                                        Command="{Binding DataContext.Assign, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"
+                                        CommandParameter="{Binding Id}"
+                                        Cursor="Hand"
+                                        Style="{StaticResource gridEditButton}">
+                                        <fa:IconImage Icon="GreaterThan" Style="{StaticResource gridButtonIcon}" />
+                                    </Button>
                                     <Button
                                         Margin="5,0,0,0"
                                         Command="{Binding DataContext.Remove, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}"

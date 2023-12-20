@@ -40,6 +40,9 @@
     <Compile Update="View\Restaurant\OrdersView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\User\UserView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Assert\Languages\English.xaml">
@@ -88,6 +91,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Restaurant\OrdersView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\User\UserView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

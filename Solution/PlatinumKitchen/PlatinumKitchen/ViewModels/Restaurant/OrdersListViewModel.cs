@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using PlatinumKitchen.View.Restaurant;
 
 namespace PlatinumKitchen.ViewModels.Restaurant
 {
@@ -19,9 +20,9 @@ namespace PlatinumKitchen.ViewModels.Restaurant
         private ObservableCollection<Orders> members;
 
         private DelegateCommand<int>? remove;
+        private DelegateCommand<int>? assign;
 
         private DelegateCommand? change;
-        private DelegateCommand? addNew;
 
         public ICommand Remove
         {
@@ -46,31 +47,30 @@ namespace PlatinumKitchen.ViewModels.Restaurant
             }
         }
 
-        public ICommand AddNew
+        public ICommand Assign
         {
             get
             {
-                if (addNew == null)
+                if (assign == null)
                 {
-                    addNew = new DelegateCommand(AddNewRecords);
+                    assign = new DelegateCommand<int>(AssignToOrders);
                 }
-                return addNew;
+                return assign;
             }
         }
-        private void AddNewRecords()
+        private void AssignToOrders(int orderId)
         {
-            /*try
+            try
             {
-                var Orders = new Orders
-                {
-                    OrderDate = "NewRecord",
-                    Ordersize = "NewRecord",
-                    Orderstatus = "Busy",
-                };
-                Controller.DataBase.OrdersRepository.Create(Orders);
-                UpdateDate();
+                Controller.User = Controller.DataBase.OrdersRepository.Get(orderId).Customers;
+                Controller.OrdersView = null;
+                Controller.OrdersViewModel = null;
+                Controller.OrdersView = new();
+                Controller.OrdersViewModel = new();
+                Controller.OrdersView.DataContext = Controller.OrdersViewModel;
+                Controller.SetMainPage("Orders");
             }
-            catch { }*/
+            catch{}
         }
 
         private void ChangeAll()

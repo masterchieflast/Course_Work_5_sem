@@ -112,7 +112,7 @@ namespace PlatinumKitchen.ViewModels.Autorize
                     List<Employees> users = Controller.DataBase.EmployeeRepository.GetAll().ToList();
                     foreach (Employees user in users)
                     {
-                        if (user.Login == Login && pas == user.Password)
+                        if (user.Login == Login[9..] && pas == user.Password)
                         {
                             Controller.UserE = Controller.DataBase.EmployeeRepository.Get(user.Id);
                             Controller.AutorizeView.Hide();

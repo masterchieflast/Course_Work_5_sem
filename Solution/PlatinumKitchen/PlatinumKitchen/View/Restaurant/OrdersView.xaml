@@ -343,41 +343,25 @@
                 <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
             </Grid.RowDefinitions>
+
             <Button
                 Grid.Row="0"
                 Margin="5"
-                Command="{Binding ChangeTableCommand}"
-                Content="Change&#10;Table"
-                IsEnabled="{Binding TableChangeEnabled}"
-                Style="{StaticResource blackThemeBtn}" />
-
-            <Button
-                Grid.Row="1"
-                Margin="5"
                 Command="{Binding PaymentCommand}"
-                Content="Payment"
+                Content="Pay"
                 IsEnabled="{Binding PaymentEnabled}"
                 Style="{StaticResource blackThemeBtn}" />
 
             <Button
-                Grid.Row="2"
-                Margin="5"
-                Content="Void Order"
-                IsEnabled="{Binding IsAdmin}"
-                Style="{StaticResource blackThemeBtn}" />
-
-            <Button
-                Grid.Row="3"
+                Grid.Row="1"
                 Margin="5"
                 Command="{Binding ReturnMenuCommand}"
                 Content="Return"
                 Style="{StaticResource blackThemeBtn}" />
 
             <Button
-                Grid.Row="4"
+                Grid.Row="2"
                 Margin="5"
                 Command="{Binding CheakStatus}"
                 Content="Cheak Status"
@@ -395,7 +379,7 @@
                 </Grid.RowDefinitions>
                 <Border
                     Grid.Row="0"
-                    MinHeight="40"
+                    MinHeight="60"
                     Background="Gray"
                     BorderBrush="DarkSlateGray"
                     BorderThickness="3"
@@ -404,6 +388,10 @@
                         <Label
                             Content="{Binding Order.Id}"
                             ContentStringFormat="Order Id: {0}"
+                            Style="{StaticResource whiteFonts}" />
+                        <Label
+                            Content="{Binding Order.Tables.Id}"
+                            ContentStringFormat="Table N: {0}"
                             Style="{StaticResource whiteFonts}" />
                     </StackPanel>
                 </Border>

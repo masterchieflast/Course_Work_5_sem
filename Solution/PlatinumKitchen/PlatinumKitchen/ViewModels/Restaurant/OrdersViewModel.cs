@@ -55,6 +55,7 @@ namespace PlatinumKitchen.ViewModels.Restaurant
         private DelegateCommand<String>? updateMenuList;
         private DelegateCommand? submitCommand;
         private DelegateCommand? cheakStatus;
+        private DelegateCommand? paymentCommand;
         private DelegateCommand? returnMenuCommand;
         private DelegateCommand<Menu>? clickMenuItemCommand;
 
@@ -100,6 +101,8 @@ namespace PlatinumKitchen.ViewModels.Restaurant
 
         public void ShowStatus()
         {
+            Controller.Login();
+            Controller.SetMainPage("Orders");
             MessageBox.Show(Order.Status);
         }
 
@@ -113,6 +116,26 @@ namespace PlatinumKitchen.ViewModels.Restaurant
                 }
                 return updateMenuList;
             }
+        }
+
+
+        public ICommand PaymentCommand
+        {
+            get
+            {
+                if (paymentCommand == null)
+                {
+                    paymentCommand = new DelegateCommand(Pay);
+                }
+                return paymentCommand;
+            }
+        }
+
+        public void Pay()
+        {
+            Order.Status = "Paid";
+            Order.Tables.TableStatus = "Free";
+            Controller.DataBase.Save();
         }
 
         public ICommand ClickMenuItemCommand
@@ -200,9 +223,8 @@ namespace PlatinumKitchen.ViewModels.Restaurant
             Controller.DataBase.Save();
         }
 
-        public ICommand LogOutCommand { get; set; }
-        public ICommand PaymentCommand { get; set; }
         public ICommand ChangeTableCommand { get; set; }
+
         public ObservableCollection<OrderItems> Orderss
         {
             get => _Orderss;
@@ -254,180 +276,55 @@ namespace PlatinumKitchen.ViewModels.Restaurant
 
         public OrdersViewModel()
         {
-            _orders = Controller.DataBase.OrdersRepository.GetAll().SingleOrDefault(
-                x => x.Status != "Paid" && x.Customers.Id == Controller.User.Id);
-            _Orderss = new ObservableCollection<OrderItems> ( Controller.DataBase.OrderItemsRepository.GetAll().Where(x => x.Orders == _orders));
-            foreach (OrderItems item in _Orderss)
+            try
             {
-                TotalBill += item.Quantity * item.Menu.Price;
-            }
-            
-            if ( _orders == null )
-            {
-                try
+
+                _orders = Controller.DataBase.OrdersRepository.GetAll().SingleOrDefault(
+                    x => x.Status != "Paid" && x.Customers.Id == Controller.User.Id);
+
+                _Orderss = new ObservableCollection<OrderItems>(Controller.DataBase.OrderItemsRepository.GetAll().Where(x => x.Orders == _orders));
+
+                foreach (OrderItems item in _Orderss)
                 {
-                    _orders = new Orders()
+                    TotalBill += item.Quantity * item.Menu.Price;
+                }
+
+                if (_orders == null)
+                {
+                    try
                     {
-                        OrderDate = DateTime.Now,
-                        Status = "Active",
-                        Notes = "-",
-                        Customers = Controller.User,
-                        Employees = Controller.DataBase.EmployeeRepository.GetAll().First(x => x.Id == 1),
-                        Tables = Controller.DataBase.TablesRepository.GetAll().First(x => x.TableStatus == "Free"),
-                    };
+                        var table = Controller.DataBase.TablesRepository.GetAll().First(x => x.TableStatus == "Free");
+                        _orders = new Orders()
+                        {
+                            OrderDate = DateTime.Now,
+                            Status = "Active",
+                            Notes = "-",
+                            Customers = Controller.User,
+                            Employees = Controller.DataBase.EmployeeRepository.GetAll().First(x => x.Id == 1),
+                            Tables = table,
+                        };
 
-                    Controller.DataBase.OrdersRepository.Create( _orders );
-                    Controller.DataBase.OrdersRepository.Update(_orders);
+                        Controller.DataBase.OrdersRepository.Create(_orders);
+                        Controller.DataBase.OrdersRepository.Update(_orders);
+                        table.TableStatus = "Busy";
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show("не работаем, ожидайте");
+                    }
                 }
-                catch (Exception e)
+                else
                 {
-                    MessageBox.Show("не работаем, ожидайте" + e.Message);
+                    if (_orders.Status == "Ready")
+                    {
+                        PaymentEnabled = true;
+                    }
                 }
             }
-
-            /*
-            AppetizersMenuCommand = new RelayCommand(() => ListOfProducts = Appetizers);
-            MainDishesMenuCommand = new RelayCommand(() => ListOfProducts = MainDishes);
-            BeveragesMenuCommand = new RelayCommand(() => ListOfProducts = Beverages);
-            DessertsMenuCommand = new RelayCommand(() => ListOfProducts = Desserts);
-            OthersMenuCommand = new RelayCommand(() => ListOfProducts = Others);
-            ClickMenuItemCommand = new RelayCommand<Menu>(ClickMenuItem);
-            ReturnMenuCommand = new RelayCommand(ReturnMenu);
-            SubmitCommand = new RelayCommand(Submit);
-            PaymentCommand = new RelayCommand(Payment);
-            LogOutCommand = new RelayCommand(Logout);
-            ChangeTableCommand = new RelayCommand(ChangeTable);*/
-        }
-
-        public void Initialize()
-        {/*
-            Appetizers = Database.GetProducts(ProductCategory.Appetizers);
-            MainDishes = Database.GetProducts(ProductCategory.MainDishes);
-            Beverages = Database.GetProducts(ProductCategory.Beverages);
-            Desserts = Database.GetProducts(ProductCategory.Desserts);
-            Others = Database.GetProducts(ProductCategory.Others);
-            TableIdByName = Mains.TableIdByName;*/
-        }
-
-        public void NotifyTableClicked(string tableNumb,
-                                       int orderId,
-                                       Customers staff,
-                                       ObservableCollection<Orders> Orderss,
-                                       DateTime dt)
-        {/*
-            if (tableNumb == null) return;
-
-            this.TableName = tableNumb;
-            this.CurrentUser = staff;
-            this.OrderId = orderId;
-            this.Orderss = Orderss == null ? new ObservableCollection<Orders>() : Orderss;
-            this.Date = dt == default(DateTime) ? DateTime.Now : dt;
-
-            //TotalBill = Orderss.Sum(x => x.Quantity * x.SelectedProduct.Price);
-            TotalBill = Orderss.Sum(x => x.TotalPrice);
-
-            prevTransaction = Orderss.GetShallowClones();
-            prevTotalBill = TotalBill;
-            PaymentEnabled = prevTotalBill != 0;
-            TableChangeEnabled = prevTransaction.Count() != 0;*/
-        }
-
-
-        private void Submit()
-        {
-            /*if (Orderss.Count() == 0)
+            catch
             {
-                Helpers.SwitchWindow(this, new TablesOverview());
-                return;
+
             }
-
-            Mains.TableOverviewVM.OrderssByTable[TableName] = Orderss;
-
-            string orderId = OrderId == 0 ? "NULL" : OrderId.ToString();
-            int lastId = Database.InsertOrder($@"{orderId},
-                                              {CurrentUser.Id},
-                                              {TableIdByName[TableName]},
-                                              '{Date.ToString("yyyy-MM-dd HH:mm:ss")}',
-                                              {TotalBill},
-                                               0
-            "
-
-                                               , TotalBill);
-            OrderId = lastId;
-            Mains.TableOverviewVM.OrderIdByTable[TableName] = lastId;
-
-            foreach (var line in Orderss)
-            {
-                string OrdersId = line.Id == -1 ? "NULL" : line.Id.ToString();
-                int id = Database.Replace(Columns.Orders, $@"{OrdersId},
-                                                                {lastId},
-                                                                {line.SelectedProduct.ID},
-                                                                {line.TotalPrice},
-                                                                {line.Quantity}");
-                line.Id = id;
-            }
-
-            prevTransaction.Clear();
-            Database.SetTableTaken(TableName, true);
-
-            Helpers.SwitchWindow(this, new TablesOverview());*/
-        }
-
-        private void Logout()
-        {/*
-            Helpers.SwitchWindow(this, new MainWindow());*/
-        }
-
-        private void ClickMenuItem(Menu product)
-        {/*
-            var Orders = Orderss.SingleOrDefault
-                (x => x.SelectedProduct.Name == product.Name);
-
-            if (Orders == null)
-            {
-                Orderss.Add(new Orders()
-                {
-                    SelectedProduct = product,
-                    Quantity = 1,
-                    TotalPrice = product.Price
-                });
-            }
-            else
-            {
-                Orders.Quantity++;
-                Orders.TotalPrice += product.Price;
-            }
-            TotalBill += product.Price;*/
-        }
-
-        private void Payment()
-        {/*
-            if (prevTotalBill == 0)
-            {
-                return;
-            }
-
-            Mains.PaymentVM.TableNumber = this.TableName;
-            Mains.PaymentVM.TotalBill = this.TotalBill;
-            Mains.PaymentVM.OrderId = this.OrderId;
-            var window = new PaymentWindow();
-            window.ShowDialog();*/
-        }
-
-        private void ChangeTable()
-        {/*
-            if (prevTransaction.Count() == 0)
-            {
-                return;
-            }
-
-            Mains.TableChangeVM.NotifyTableClicked(TableName, CurrentUser);
-            Helpers.SwitchWindow(this, new TableChange());*/
-        }
-
-        public void ReturnToTableMenu()
-        {/*
-            Helpers.SwitchWindow(this, new TablesOverview());*/
         }
     }
 }

@@ -60,10 +60,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="View\Employee\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Assert\Images\back-image.jpg" />
     <Resource Include="Assert\Images\dessert.jpg" />
     <Resource Include="Assert\Images\drinks.png" />

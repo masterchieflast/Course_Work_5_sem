@@ -96,6 +96,22 @@ namespace PlatinumKitchen.ViewModels
                 return showMainViewCommand;
             }
         }
+
+        private DelegateCommand? languageSwitch;
+
+        public ICommand LanguageSwitch
+        {
+            get
+            {
+                languageSwitch ??= new DelegateCommand(LanguageSwitchF);
+                return languageSwitch;
+            }
+        }
+
+        private void LanguageSwitchF()
+        {
+            Controller.SetLanguage();
+        }
         private void SetMainPageView(string namePage)
         {
             Controller.SetMainPage(namePage);

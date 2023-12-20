@@ -3,15 +3,12 @@ using PlatinumKitchen.Models.Database.Entityes;
 using PlatinumKitchen.View.Admin;
 using PlatinumKitchen.View.Autorize;
 using PlatinumKitchen.View.Restaurant;
+using PlatinumKitchen.View.User;
 using PlatinumKitchen.ViewModels;
 using PlatinumKitchen.ViewModels.Admin;
 using PlatinumKitchen.ViewModels.Autorize;
 using PlatinumKitchen.ViewModels.Restaurant;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PlatinumKitchen.ViewModels.User;
 using System.Windows;
 
 namespace PlatinumKitchen.Models
@@ -48,6 +45,8 @@ namespace PlatinumKitchen.Models
         public static OrdersViewModel OrdersViewModel;
         public static OrdersListView OrdersListView;
         public static OrdersListViewModel OrdersListViewModel;
+        public static UserView UserView;
+        public static UserViewModel UserViewModel;
 
 
         private static string language;
@@ -98,11 +97,16 @@ namespace PlatinumKitchen.Models
             OrdersListViewModel = new();
             OrdersListView.DataContext = OrdersListViewModel;
 
+
             UpdateData();
         }
 
         public static void Login()
         {
+            UserView = new();
+            UserViewModel = new();
+            UserView.DataContext = UserViewModel;
+
             OrdersView = new();
             OrdersViewModel = new();
             OrdersView.DataContext = OrdersViewModel;
@@ -149,6 +153,9 @@ namespace PlatinumKitchen.Models
         {
             switch (namePage)
             {
+                case "Account":
+                    MainViewModel.MainBodyPage = UserView;
+                    break;
                 case "OrdersList":
                     MainViewModel.MainBodyPage = OrdersListView;
                     break;

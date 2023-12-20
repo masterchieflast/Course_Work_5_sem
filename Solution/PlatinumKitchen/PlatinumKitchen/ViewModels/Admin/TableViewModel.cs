@@ -20,6 +20,7 @@ namespace PlatinumKitchen.ViewModels.Admin
         private ObservableCollection<Tables> members;
 
         private DelegateCommand<int>? remove;
+        private DelegateCommand<int>? assign;
 
         private DelegateCommand? change;
         private DelegateCommand? addNew;
@@ -57,6 +58,44 @@ namespace PlatinumKitchen.ViewModels.Admin
                 }
                 return addNew;
             }
+        }
+
+        public ICommand Assign
+        {
+            get
+            {
+                if (assign == null)
+                {
+                    assign = new DelegateCommand<int>(AssignToOrders);
+                }
+                return assign;
+            }
+        }
+        private void AssignToOrders(int tableId)
+        {
+            try
+            {
+                var table = Controller.DataBase.TablesRepository.Get(tableId);
+                if(table.TableStatus == "Free")
+                {
+                    var order = Controller.DataBase.OrdersRepository.GetAll()
+                        .Where(x => x.Customers == Controller.User).First();
+                    order.Tables.TableStatus = "Free";
+                    table.TableStatus = "Busy";
+                    order.Tables = table;
+                }
+
+                Controller.OrdersView = null;
+                Controller.OrdersViewModel = null;
+                Controller.OrdersView = new();
+                Controller.OrdersViewModel = new();
+                Controller.OrdersView.DataContext = Controller.OrdersViewModel;
+                Controller.SetMainPage("Orders");
+                Controller.DataBase.Save();
+                Controller.UpdateData();
+                UpdateDate();
+            }
+            catch { }
         }
         private void AddNewRecords()
         {

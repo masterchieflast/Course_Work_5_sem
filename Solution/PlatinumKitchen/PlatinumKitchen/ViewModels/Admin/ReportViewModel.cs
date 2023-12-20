@@ -55,10 +55,9 @@ namespace PlatinumKitchen.ViewModels.Restaurant
             }
         }
         public ReportViewModel(){
-            List<Orders> ordersList = Controller.DataBase.OrdersRepository.GetAll().OrderBy(x => x.OrderDate).ToList();
+            List<Orders> ordersList = Controller.DataBase.OrdersRepository.GetAll().Where(x => x.Status == "Paid").OrderBy(x => x.OrderDate).ToList();
             List<OrderItems> orderssList = Controller.DataBase.OrderItemsRepository.GetAll().ToList();
             var ordersDateList = Controller.DataBase.OrdersRepository.GetAll().OrderBy(x => x.OrderDate).Select(x => x.OrderDate.ToString()).ToList();
-
 
             DateTime[] dates = new DateTime[ordersList.Count];
             int[] numberItems = new int[ordersList.Count];

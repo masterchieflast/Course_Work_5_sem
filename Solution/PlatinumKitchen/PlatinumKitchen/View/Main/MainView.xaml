@@ -8,6 +8,8 @@
     Title="MainWindowView"
     Width="1300"
     Height="700"
+    MinWidth="1000px"
+    MinHeight="650px"
     AllowsTransparency="True"
     Background="Transparent"
     MouseDown="Window_MouseDown"
@@ -243,13 +245,14 @@
 
                         <!--  Menu Buttons  -->
                         <RadioButton
-                            Command="{Binding ShowHomeViewCommand}"
+                            Command="{Binding ShowMainViewCommand}"
+                            CommandParameter="Account"
                             IsChecked="True"
                             Style="{StaticResource menuButton}"
                             Tag="{StaticResource color1}">
                             <StackPanel Orientation="Horizontal">
-                                <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}" />
-                                <TextBlock Style="{StaticResource menuButtonText}" Text="Dashboard" />
+                                <fa:IconImage Icon="User" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Style="{StaticResource menuButtonText}" Text="Account" />
                             </StackPanel>
                         </RadioButton>
                         <RadioButton
@@ -283,7 +286,6 @@
                                 <TextBlock Style="{StaticResource menuButtonText}" Text="Customers" />
                             </StackPanel>
                         </RadioButton>
-
                         <RadioButton
                             Command="{Binding ShowMainViewCommand}"
                             CommandParameter="Employees"
@@ -340,74 +342,11 @@
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <!--  Header / Caption  -->
-                        <Grid Grid.Row="0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition />
-                                <ColumnDefinition />
-                            </Grid.ColumnDefinitions>
 
-                            <!--  Caption  -->
-                            <StackPanel
-                                Grid.Column="0"
-                                VerticalAlignment="Center"
-                                Orientation="Horizontal">
-                                <fa:IconImage
-                                    Width="20"
-                                    Height="20"
-                                    Margin="35,0,10,0"
-                                    Foreground="{StaticResource titleColor2}"
-                                    Icon="{Binding Icon}" />
-
-                                <TextBlock
-                                    VerticalAlignment="Center"
-                                    FontFamily="Montserrat"
-                                    FontSize="16"
-                                    FontWeight="Medium"
-                                    Foreground="{StaticResource titleColor2}"
-                                    Text="{Binding Caption}" />
-                            </StackPanel>
-
-                            <!--  User options  -->
-                            <StackPanel
-                                Grid.Column="1"
-                                Margin="0,0,10,0"
-                                VerticalAlignment="Center"
-                                FlowDirection="RightToLeft"
-                                Orientation="Horizontal">
-                                <Button Style="{StaticResource iconButton}" Tag="{StaticResource color1}">
-                                    <fa:IconImage
-                                        Width="12"
-                                        Height="12"
-                                        Icon="AngleDown"
-                                        Style="{StaticResource iconButtonIcon}" />
-                                </Button>
-                                <TextBlock
-                                    VerticalAlignment="Center"
-                                    FontFamily="Montserrat"
-                                    FontSize="12"
-                                    Foreground="{StaticResource titleColor3}"
-                                    Text="{Binding CurrentUserAccount.DisplayName}" />
-                                <Ellipse
-                                    Width="35"
-                                    Height="35"
-                                    Margin="10,0,10,0"
-                                    Stroke="{StaticResource color2}"
-                                    StrokeThickness="2" />
-                                <Button Style="{StaticResource iconButton}" Tag="{StaticResource color3}">
-                                    <fa:IconImage Icon="Clock" Style="{StaticResource iconButtonIcon}" />
-                                </Button>
-                                <Button Style="{StaticResource iconButton}" Tag="{StaticResource color4}">
-                                    <fa:IconImage Icon="Envelope" Style="{StaticResource iconButtonIcon}" />
-                                </Button>
-                                <Button Style="{StaticResource iconButton}" Tag="{StaticResource color5}">
-                                    <fa:IconImage Icon="Bell" Style="{StaticResource iconButtonIcon}" />
-                                </Button>
-                            </StackPanel>
-
-                        </Grid>
                         <Frame
                             x:Name="MainBodyPage"
-                            Grid.Row="2"
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
                             Margin="25"
                             Content="{Binding MainBodyPage}"
                             NavigationUIVisibility="Hidden" />

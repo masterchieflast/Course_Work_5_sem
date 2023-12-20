@@ -1,8 +1,9 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <!--  Autorize  -->
+    <!--  All  -->
     <system:String x:Key="Username">Username</system:String>
     <system:String x:Key="Password">Password</system:String>
     <system:String x:Key="Registration">Registration</system:String>
@@ -14,10 +15,15 @@
     <system:String x:Key="PasswordNotEquals">Password Not Equals</system:String>
     <system:String x:Key="Email">Email</system:String>
     <system:String x:Key="EmailError">Email Error</system:String>
+    <system:String x:Key="FirstName">First Name</system:String>
+    <system:String x:Key="LastName">Last Name</system:String>
+    <system:String x:Key="PhoneNumber">Phone Number</system:String>
+    <system:String x:Key="Position">Position</system:String>
+    <system:String x:Key="Salary">Salary</system:String>
 
     <!--  Errors  -->
     <system:String x:Key="LoginError">Invalid Login</system:String>
     <system:String x:Key="PasswordError">Invalid Password</system:String>
     <system:String x:Key="UserError">User not exist</system:String>
-    
+
 </ResourceDictionary>
