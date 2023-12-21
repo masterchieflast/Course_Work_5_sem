@@ -349,7 +349,7 @@
                 Grid.Row="0"
                 Margin="5"
                 Command="{Binding PaymentCommand}"
-                Content="Pay"
+                Content="{DynamicResource Pay}"
                 IsEnabled="{Binding PaymentEnabled}"
                 Style="{StaticResource blackThemeBtn}" />
 
@@ -357,14 +357,14 @@
                 Grid.Row="1"
                 Margin="5"
                 Command="{Binding ReturnMenuCommand}"
-                Content="Return"
+                Content="{DynamicResource Return}"
                 Style="{StaticResource blackThemeBtn}" />
 
             <Button
                 Grid.Row="2"
                 Margin="5"
                 Command="{Binding CheakStatus}"
-                Content="Cheak Status"
+                Content="{DynamicResource CheakStatus}"
                 Style="{StaticResource blackThemeBtn}" />
         </Grid>
 
@@ -387,11 +387,11 @@
                     <StackPanel>
                         <Label
                             Content="{Binding Order.Id}"
-                            ContentStringFormat="Order Id: {0}"
+                            ContentStringFormat="Заказ/Order N: {0}"
                             Style="{StaticResource whiteFonts}" />
                         <Label
                             Content="{Binding Order.Tables.Id}"
-                            ContentStringFormat="Table N: {0}"
+                            ContentStringFormat="Столик/Table N: {0}"
                             Style="{StaticResource whiteFonts}" />
                     </StackPanel>
                 </Border>
@@ -407,7 +407,7 @@
                                 <!--  Qty header  -->
                                 <GridViewColumn
                                     Width="60"
-                                    Header="Qty"
+                                    Header="{DynamicResource Qty}"
                                     HeaderContainerStyle="{StaticResource gridHeaderStyle}">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
@@ -419,7 +419,7 @@
                                 <!--  Product header  -->
                                 <GridViewColumn
                                     Width="400"
-                                    Header="Product"
+                                    Header="{DynamicResource Product}"
                                     HeaderContainerStyle="{StaticResource gridHeaderStyle}">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
@@ -437,14 +437,14 @@
                     Margin="5,20,5,20"
                     HorizontalAlignment="Center"
                     Content="{Binding TotalBill}"
-                    ContentStringFormat="Total: RM {0:F2}"
+                    ContentStringFormat="Сумма/Total: {0:F2}$"
                     FontSize="24"
                     FontWeight="Bold"
                     Foreground="#00C326" />
                 <Button
                     Grid.Row="3"
                     Command="{Binding SubmitCommand}"
-                    Content="Submit"
+                    Content="{DynamicResource Submit}"
                     Style="{StaticResource submitBtnStyle}" />
             </Grid>
         </Grid>

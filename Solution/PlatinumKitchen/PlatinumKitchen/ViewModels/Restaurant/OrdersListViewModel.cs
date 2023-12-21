@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using PlatinumKitchen.View.Restaurant;
+using System.Windows;
 
 namespace PlatinumKitchen.ViewModels.Restaurant
 {
@@ -69,21 +70,40 @@ namespace PlatinumKitchen.ViewModels.Restaurant
                 Controller.OrdersViewModel = new();
                 Controller.OrdersView.DataContext = Controller.OrdersViewModel;
                 Controller.SetMainPage("Orders");
+                Controller.MainView.OrdersList.IsChecked = false;
+                Controller.MainView.Orders.IsChecked = true;
+                Controller.DataBase.OrdersRepository.Get(orderId).Employees = Controller.UserE;
             }
             catch{}
         }
-
         private void ChangeAll()
         {
-            try
-            {
-                Controller.DataBase.Save();
-                Controller.UpdateData();
-                UpdateDate();
-            }
-            catch { }
+            Controller.DataBase.Save();
         }
 
+
+        public bool EditAvaible
+        {
+            get
+            {
+                return !Controller.Admin;
+            }
+        }
+
+        public Visibility VisRemove
+        {
+            get
+            {
+                if (!Controller.Admin)
+                {
+                    return Visibility.Collapsed;
+                }
+                else
+                {
+                    return Visibility.Visible;
+                }
+            }
+        }
         private void RemoveById(int id)
         {
             try
@@ -106,7 +126,13 @@ namespace PlatinumKitchen.ViewModels.Restaurant
 
         public void UpdateDate()
         {
-            members = new ObservableCollection<Orders>(Controller.DataBase.OrdersRepository.GetAll().Where(item => item.Status.Contains(Filter, StringComparison.OrdinalIgnoreCase)));
+            var items = Controller.DataBase.OrdersRepository.GetAll().Where(item => item.Status.Contains(Filter, StringComparison.OrdinalIgnoreCase));
+            if (!Controller.Admin)
+            {
+                items = items.Where(x => x.Status != "Paid");
+            }
+
+            members = new ObservableCollection<Orders>(items);
             Controller.OrdersListView.membersDataGrid.ItemsSource = members;
         }
 

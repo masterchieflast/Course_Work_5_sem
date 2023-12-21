@@ -111,71 +111,75 @@ namespace PlatinumKitchen.ViewModels.Autorize
 
         private void LoginApplication()
         {
-            bool check_01 = true;
-            bool check_02 = true;
-            bool check_03 = true;
-            bool check_04 = true;
-
-            var pas = UnsecureString.ConvertToUnsecureString(Password);
-            MessageError = "";
-
-            if (String.IsNullOrEmpty(Login) || Login.Length < 3)
+            try
             {
-                MessageError +=
-                Application.Current.FindResource("LoginError").ToString() + " ";
-                check_01 = false;
-            }
+                bool check_01 = true;
+                bool check_02 = true;
+                bool check_03 = true;
+                bool check_04 = true;
 
-            if (String.IsNullOrEmpty(pas) 
-                || pas.Length < 8 || !pas.Any(char.IsDigit) || !pas.Any(char.IsUpper))
-            {
-                MessageError += check_01 ?
-                Application.Current.FindResource("PasswordError").ToString()
-                : Application.Current.FindResource("And").ToString() + ' ' + Application.Current.FindResource("PasswordError").ToString();
-                check_02 = false;
-            }
+                var pas = UnsecureString.ConvertToUnsecureString(Password);
+                MessageError = "";
 
-            if (UnsecureString.ConvertToUnsecureString(RepeatPassword) != UnsecureString.ConvertToUnsecureString(Password))
-            {
-                check_03 = false;
-            }
-
-            if (!Validator.EmailValid(Email))
-            {
-                MessageError = Application.Current.FindResource("EmailError").ToString();
-                check_04 = false;
-            }
-
-            if (check_01 && check_02 && check_03 && check_04)
-            {
-
-                if (!(Login.Length >= 9) || !Login[..9].Equals("employees", StringComparison.CurrentCultureIgnoreCase))
+                if (String.IsNullOrEmpty(Login) || Login.Length < 3)
                 {
-                    List<Customers> users = Controller.DataBase.CustomerRepository.GetAll().ToList();
-                    if(!users.Any(user => user.Login == Login))
+                    MessageError +=
+                    Application.Current.FindResource("LoginError").ToString() + " ";
+                    check_01 = false;
+                }
+
+                if (String.IsNullOrEmpty(pas)
+                    || pas.Length < 8 || !pas.Any(char.IsDigit) || !pas.Any(char.IsUpper))
+                {
+                    MessageError += check_01 ?
+                    Application.Current.FindResource("PasswordError").ToString()
+                    : Application.Current.FindResource("And").ToString() + ' ' + Application.Current.FindResource("PasswordError").ToString();
+                    check_02 = false;
+                }
+
+                if (UnsecureString.ConvertToUnsecureString(RepeatPassword) != UnsecureString.ConvertToUnsecureString(Password))
+                {
+                    check_03 = false;
+                }
+
+                if (!Validator.EmailValid(Email))
+                {
+                    MessageError = Application.Current.FindResource("EmailError").ToString();
+                    check_04 = false;
+                }
+
+                if (check_01 && check_02 && check_03 && check_04)
+                {
+
+                    if (!(Login.Length >= 9) || !Login[..9].Equals("employees", StringComparison.CurrentCultureIgnoreCase))
                     {
-                        var user = new Customers
+                        List<Customers> users = Controller.DataBase.CustomerRepository.GetAll().ToList();
+                        if (!users.Any(user => user.Login == Login))
                         {
-                            First_Name = this.Login,
-                            Last_Name = this.Login,
-                            Login = this.Login,
-                            Password = UnsecureString.Encode(pas),
-                            Email = this.Email,
-                            Phone_Number = "-"
-                        };
-                        Controller.DataBase.CustomerRepository.Create(user);
-                        check_01 = false;
+                            var user = new Customers
+                            {
+                                First_Name = this.Login,
+                                Last_Name = this.Login,
+                                Login = this.Login,
+                                Password = UnsecureString.Encode(pas),
+                                Email = this.Email,
+                                Phone_Number = "80298467707"
+                            };
+                            Controller.DataBase.CustomerRepository.Create(user);
+                            check_01 = false;
 
-                        MessageBox.Show("Good");
+                            MessageBox.Show(Application.Current.FindResource("Good").ToString());
 
-                        Controller.SetAuthenticationPage("Login");
+                            Controller.SetAuthenticationPage("Login");
+                        }
+                    }
+
+                    if (check_01)
+                    {
+                        MessageError = Application.Current.FindResource("UserError").ToString();
                     }
                 }
-
-                if (check_01)
-                {
-                    MessageError = Application.Current.FindResource("UserError").ToString();
-                }
+            } catch (Exception) {
             }
         }
         private DelegateCommand<string>? setAuthenticationPage;

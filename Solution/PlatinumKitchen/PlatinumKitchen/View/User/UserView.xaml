@@ -39,6 +39,21 @@
                 </MultiBinding>
             </Image.Source>
         </Image>
+        <Button
+            x:Name="GetImage"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Width="424"
+            Height="525"
+            Margin="50,50,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="Transparent"
+            BorderThickness="0"
+            Command="{Binding Image}"
+            Content="{DynamicResource EnterImage}"
+            Foreground="Black"
+            Visibility="Hidden" />
         <Grid
             Grid.Row="0"
             Grid.RowSpan="2"
@@ -50,10 +65,28 @@
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="1">
+                <Button
+                    Grid.RowSpan="2"
+                    Width="30"
+                    Height="30"
+                    Margin="0,80,10,0"
+                    HorizontalAlignment="Right"
+                    Background="Transparent"
+                    Command="{Binding Edit}"
+                    Cursor="Hand">
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage
+                            Width="21"
+                            Height="21"
+                            Margin="0,1,8,0"
+                            VerticalAlignment="Center"
+                            Foreground="white"
+                            Icon="Edit" />
+                    </StackPanel>
+                </Button>
                 <TextBlock
                     Width="400"
                     Height="20"
-                    Margin="0,100,0,0"
                     FontFamily="Montserrat"
                     FontSize="12"
                     FontWeight="Medium"
@@ -73,6 +106,7 @@
                     FontSize="13"
                     FontWeight="Medium"
                     Foreground="White"
+                    IsHitTestVisible="False"
                     Text="{Binding FirstName}">
 
                     <TextBox.Background>
@@ -103,6 +137,7 @@
                     FontSize="13"
                     FontWeight="Medium"
                     Foreground="White"
+                    IsHitTestVisible="False"
                     Text="{Binding LastName}">
 
                     <TextBox.Background>
@@ -133,6 +168,7 @@
                     FontSize="13"
                     FontWeight="Medium"
                     Foreground="White"
+                    IsHitTestVisible="False"
                     Text="{Binding Login}">
 
                     <TextBox.Background>
@@ -163,6 +199,7 @@
                     FontSize="13"
                     FontWeight="Medium"
                     Foreground="White"
+                    IsHitTestVisible="False"
                     Text="{Binding Password}">
 
                     <TextBox.Background>
@@ -193,6 +230,7 @@
                     FontSize="13"
                     FontWeight="Medium"
                     Foreground="White"
+                    IsHitTestVisible="False"
                     Text="{Binding Email}">
                     <TextBox.Background>
                         <ImageBrush AlignmentX="Left" Stretch="None" />
@@ -222,6 +260,7 @@
                     FontSize="13"
                     FontWeight="Medium"
                     Foreground="White"
+                    IsHitTestVisible="False"
                     Text="{Binding PhoneNumber}">
 
                     <TextBox.Background>
@@ -238,6 +277,7 @@
                     FontSize="12"
                     FontWeight="Medium"
                     Foreground="#ffe0a3"
+                    IsHitTestVisible="False"
                     RenderTransformOrigin="0.5,0.5"
                     Text="{DynamicResource Position}" />
                 <TextBox
@@ -253,6 +293,7 @@
                     FontSize="13"
                     FontWeight="Medium"
                     Foreground="White"
+                    IsHitTestVisible="False"
                     Text="{Binding Position}">
 
                     <TextBox.Background>
@@ -284,6 +325,7 @@
                     FontSize="13"
                     FontWeight="Medium"
                     Foreground="White"
+                    IsHitTestVisible="False"
                     Text="{Binding Salary}">
 
                     <TextBox.Background>
@@ -292,6 +334,7 @@
                 </TextBox>
 
                 <Button
+                    x:Name="SaveBut"
                     Grid.RowSpan="2"
                     Width="231"
                     Height="60"
@@ -300,7 +343,8 @@
                     Background="Green"
                     Command="{Binding Change}"
                     Cursor="Hand"
-                    Style="{StaticResource addButton}">
+                    Style="{StaticResource addButton}"
+                    Visibility="Hidden">
                     <StackPanel Orientation="Horizontal">
                         <fa:IconImage
                             Width="11"
@@ -309,7 +353,7 @@
                             VerticalAlignment="Center"
                             Foreground="white"
                             Icon="Refresh" />
-                        <TextBlock Text="Save Changes" />
+                        <TextBlock Text="{DynamicResource SaveChanges}" />
                     </StackPanel>
                 </Button>
             </StackPanel>

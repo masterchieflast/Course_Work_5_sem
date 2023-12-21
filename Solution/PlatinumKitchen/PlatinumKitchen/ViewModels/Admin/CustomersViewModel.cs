@@ -7,6 +7,7 @@ using PlatinumKitchen.Utilities.Commands;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -115,6 +116,14 @@ namespace PlatinumKitchen.ViewModels.Admin
         {
             members = new ObservableCollection<Customers> (Controller.DataBase.CustomerRepository.GetAll().Where(item => item.First_Name.Contains(Filter, StringComparison.OrdinalIgnoreCase)));
             Controller.CustomersView.membersDataGrid.ItemsSource = members;
+        }
+
+        public bool EditAvaible
+        {
+            get
+            {
+                return !Controller.Admin;
+            }
         }
 
         public CustomersViewModel()

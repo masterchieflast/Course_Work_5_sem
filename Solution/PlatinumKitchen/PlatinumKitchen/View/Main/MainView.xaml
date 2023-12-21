@@ -247,12 +247,11 @@
                         <RadioButton
                             Command="{Binding ShowMainViewCommand}"
                             CommandParameter="Account"
-                            IsChecked="True"
                             Style="{StaticResource menuButton}"
                             Tag="{StaticResource color1}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="User" Style="{StaticResource menuButtonIcon}" />
-                                <TextBlock Style="{StaticResource menuButtonText}" Text="Account" />
+                                <TextBlock Style="{StaticResource menuButtonText}" Text="{DynamicResource Account}" />
                             </StackPanel>
                         </RadioButton>
                         <RadioButton
@@ -262,68 +261,74 @@
                             Tag="{StaticResource color3}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="BowlFood" Style="{StaticResource menuButtonIcon}" />
-                                <TextBlock Style="{StaticResource menuButtonText}" Text="Menu" />
+                                <TextBlock Style="{StaticResource menuButtonText}" Text="{DynamicResource Menu}" />
                             </StackPanel>
                         </RadioButton>
                         <RadioButton
+                            x:Name="Report"
                             Command="{Binding ShowMainViewCommand}"
                             CommandParameter="Report"
                             Style="{StaticResource menuButton}"
                             Tag="{StaticResource color4}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="NoteSticky" Style="{StaticResource menuButtonIcon}" />
-                                <TextBlock Style="{StaticResource menuButtonText}" Text="Report" />
+                                <TextBlock Style="{StaticResource menuButtonText}" Text="{DynamicResource Report}" />
                             </StackPanel>
                         </RadioButton>
 
                         <RadioButton
+                            x:Name="Customers"
                             Command="{Binding ShowMainViewCommand}"
                             CommandParameter="Customers"
                             Style="{StaticResource menuButton}"
                             Tag="{StaticResource color2}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="UserGroup" Style="{StaticResource menuButtonIcon}" />
-                                <TextBlock Style="{StaticResource menuButtonText}" Text="Customers" />
+                                <TextBlock Style="{StaticResource menuButtonText}" Text="{DynamicResource Customers}" />
                             </StackPanel>
                         </RadioButton>
                         <RadioButton
+                            x:Name="Employee"
                             Command="{Binding ShowMainViewCommand}"
                             CommandParameter="Employees"
                             Style="{StaticResource menuButton}"
                             Tag="{StaticResource color5}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="PeopleLine" Style="{StaticResource menuButtonIcon}" />
-                                <TextBlock Style="{StaticResource menuButtonText}" Text="Employees" />
+                                <TextBlock Style="{StaticResource menuButtonText}" Text="{DynamicResource Employees}" />
                             </StackPanel>
                         </RadioButton>
                         <RadioButton
+                            x:Name="Tables"
                             Command="{Binding ShowMainViewCommand}"
                             CommandParameter="Tables"
                             Style="{StaticResource menuButton}"
                             Tag="{StaticResource color6}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="Table" Style="{StaticResource menuButtonIcon}" />
-                                <TextBlock Style="{StaticResource menuButtonText}" Text="Tables" />
+                                <TextBlock Style="{StaticResource menuButtonText}" Text="{DynamicResource Tables}" />
                             </StackPanel>
                         </RadioButton>
                         <RadioButton
+                            x:Name="Orders"
                             Command="{Binding ShowMainViewCommand}"
                             CommandParameter="Orders"
                             Style="{StaticResource menuButton}"
                             Tag="{StaticResource color7}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="CartPlus" Style="{StaticResource menuButtonIcon}" />
-                                <TextBlock Style="{StaticResource menuButtonText}" Text="Orders" />
+                                <TextBlock Style="{StaticResource menuButtonText}" Text="{DynamicResource Orders}" />
                             </StackPanel>
                         </RadioButton>
                         <RadioButton
+                            x:Name="OrdersList"
                             Command="{Binding ShowMainViewCommand}"
                             CommandParameter="OrdersList"
                             Style="{StaticResource menuButton}"
                             Tag="{StaticResource color8}">
                             <StackPanel Orientation="Horizontal">
                                 <fa:IconImage Icon="CartFlatbed" Style="{StaticResource menuButtonIcon}" />
-                                <TextBlock Style="{StaticResource menuButtonText}" Text="Orders List" />
+                                <TextBlock Style="{StaticResource menuButtonText}" Text="{DynamicResource OrdersList}" />
                             </StackPanel>
                         </RadioButton>
                     </StackPanel>

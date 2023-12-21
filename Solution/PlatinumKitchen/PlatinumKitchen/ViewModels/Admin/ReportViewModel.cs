@@ -4,6 +4,7 @@ using PlatinumKitchen.Models.Database.Entityes;
 using PlatinumKitchen.Models;
 using PlatinumKitchen.Utilities;
 using System.Windows.Media;
+using System.Windows;
 
 namespace PlatinumKitchen.ViewModels.Restaurant
 {
@@ -22,7 +23,7 @@ namespace PlatinumKitchen.ViewModels.Restaurant
 
                 foreach (OrderItems orders in ordersList)
                 {
-                    if(orders.Orders.Status == "Paid")
+                    if (orders.Orders.Status == "Paid" && orders.Menu != null)
                     {
                         result += orders.Menu.Price * orders.Quantity;
                     }
@@ -78,7 +79,7 @@ namespace PlatinumKitchen.ViewModels.Restaurant
             {
                 new LineSeries
                 {
-                    Title = "Orders",
+                    Title = Application.Current.FindResource("Orders").ToString(),
                     Values = new ChartValues<int>(numberItems)
                 }
             };

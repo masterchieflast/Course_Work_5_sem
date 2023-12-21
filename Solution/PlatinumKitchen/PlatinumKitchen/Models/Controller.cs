@@ -48,6 +48,8 @@ namespace PlatinumKitchen.Models
         public static UserView UserView;
         public static UserViewModel UserViewModel;
 
+        public static bool Admin = false;
+
 
         private static string language;
 
@@ -75,10 +77,6 @@ namespace PlatinumKitchen.Models
             MenuDescriptionViewModel = new();
             MenuDescriptionView.DataContext = MenuDescriptionViewModel;
 
-            ReportView = new();
-            ReportViewModel = new();
-            ReportView.DataContext = ReportViewModel;
-
             CustomersView = new();
             CustomersViewModel = new();
             CustomersView.DataContext = CustomersViewModel;
@@ -103,6 +101,25 @@ namespace PlatinumKitchen.Models
 
         public static void Login()
         {
+            if(User != null)
+            {
+                MainView.Report.Visibility = Visibility.Collapsed;
+                MainView.Customers.Visibility = Visibility.Collapsed;
+                MainView.Employee.Visibility = Visibility.Collapsed;
+                MainView.Customers.Visibility = Visibility.Collapsed;
+                MainView.OrdersList.Visibility = Visibility.Collapsed;
+            }
+
+            if(UserE != null)
+            {
+                MainView.Report.Visibility = Visibility.Collapsed;
+                MainView.Customers.Visibility = Visibility.Collapsed;
+                MainView.Employee.Visibility = Visibility.Collapsed;
+                MainView.Customers.Visibility = Visibility.Collapsed;
+                MainView.OrdersList.Visibility = Visibility.Visible;
+            }
+
+
             UserView = new();
             UserViewModel = new();
             UserView.DataContext = UserViewModel;
@@ -110,6 +127,15 @@ namespace PlatinumKitchen.Models
             OrdersView = new();
             OrdersViewModel = new();
             OrdersView.DataContext = OrdersViewModel;
+
+            if (Admin)
+            {
+                MainView.Report.Visibility = Visibility.Visible;
+                MainView.Customers.Visibility = Visibility.Visible;
+                MainView.Employee.Visibility = Visibility.Visible;
+                MainView.Customers.Visibility = Visibility.Visible;
+                MainView.OrdersList.Visibility = Visibility.Visible;
+            }
         }
 
         public static void SetLanguage()
@@ -154,30 +180,75 @@ namespace PlatinumKitchen.Models
             switch (namePage)
             {
                 case "Account":
+                    UserView = new();
+                    UserViewModel = new();
+                    UserView.DataContext = UserViewModel;
                     MainViewModel.MainBodyPage = UserView;
                     break;
                 case "OrdersList":
+                    OrdersListView = new();
+                    OrdersListViewModel = new();
+                    OrdersListView.DataContext = OrdersListViewModel;
                     MainViewModel.MainBodyPage = OrdersListView;
                     break;
                 case "Orders":
+                    OrdersView = new();
+                    OrdersViewModel = new();
+                    OrdersView.DataContext = OrdersViewModel;
                     MainViewModel.MainBodyPage = OrdersView;
                     break;
                 case "Customers":
+                    CustomersView = new();
+                    CustomersViewModel = new();
+                    CustomersView.DataContext = CustomersViewModel;
                     MainViewModel.MainBodyPage = CustomersView;
                     break;
                 case "Tables":
+                    TablesView = new();
+                    TableViewModel = new();
+                    TablesView.DataContext = TableViewModel;
                     MainViewModel.MainBodyPage = TablesView;
+
+
+                    if (!Admin)
+                    {
+                        TablesView.addNew.Visibility = Visibility.Collapsed;
+                    }
                     break;
                 case "Employees":
+
+                    EmployeesView = new();
+                    EmployeesViewModel = new();
+                    EmployeesView.DataContext = EmployeesViewModel;
                     MainViewModel.MainBodyPage = EmployeesView;
                     break;
                 case "Menu":
+                    MenuView = new();
+                    MenuViewModel = new();
+                    MenuView.DataContext = MenuViewModel;
+                    UpdateData();
                     MainViewModel.MainBodyPage = MenuView;
+
+
+                    if (!Admin)
+                    {
+                        MenuView.SaveBut.Visibility = Visibility.Collapsed;
+                    }
                     break;
                 case "MenuDescription":
                     MainViewModel.MainBodyPage = MenuDescriptionView;
+
+
+                    if (!Admin)
+                    {
+                        MenuDescriptionView.EditNews.Visibility = Visibility.Collapsed;
+                        MenuDescriptionView.DeleteNews.Visibility = Visibility.Collapsed;
+                    }
                     break;
                 case "Report":
+                    ReportView = new();
+                    ReportViewModel = new();
+                    ReportView.DataContext = ReportViewModel;
                     MainViewModel.MainBodyPage = ReportView;
                     break;
                 case "Admin":

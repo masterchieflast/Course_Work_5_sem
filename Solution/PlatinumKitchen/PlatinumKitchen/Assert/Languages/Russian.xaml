@@ -1,7 +1,9 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:system="clr-namespace:System;assembly=mscorlib">
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <!-- Autorize -->
+    <!--  Autorize  -->
     <system:String x:Key="Username">Имя пользователя</system:String>
     <system:String x:Key="Password">Пароль</system:String>
     <system:String x:Key="Registration">Регистрация</system:String>
@@ -12,10 +14,56 @@
     <system:String x:Key="RepeatPassword">Повторите пароль</system:String>
     <system:String x:Key="PasswordNotEquals">Пароли не совпадают</system:String>
     <system:String x:Key="Email">Электронная почта</system:String>
-    <system:String x:Key="EmailError">Ошибка в адресе электронной почты</system:String>
+    <system:String x:Key="FirstName">Имя</system:String>
+    <system:String x:Key="LastName">Фамилия</system:String>
+    <system:String x:Key="PhoneNumber">Номер телефона</system:String>
+    <system:String x:Key="Position">Должность</system:String>
+    <system:String x:Key="Salary">Зарплата</system:String>
+    <system:String x:Key="Good">Хорошо</system:String>
+    <system:String x:Key="Account">Аккаунт</system:String>
+    <system:String x:Key="Menu">Меню</system:String>
+    <system:String x:Key="Report">Отчет</system:String>
+    <system:String x:Key="Customers">Клиенты</system:String>
+    <system:String x:Key="Employees">Сотрудники</system:String>
+    <system:String x:Key="Tables">Столы</system:String>
+    <system:String x:Key="OrdersList">Список заказов</system:String>
+    <system:String x:Key="Orders">Заказы</system:String>
+    <system:String x:Key="Income">Доход</system:String>
+    <system:String x:Key="SaveChanges">Сохранить изм.</system:String>
+    <system:String x:Key="EnterImage">Вставить изображение</system:String>
+    <system:String x:Key="AddNewTable">Добавить новый стол</system:String>
+    <system:String x:Key="Search">Поиск</system:String>
+    <system:String x:Key="Id">Идентификатор</system:String>
+    <system:String x:Key="TableNumber">Номер стола</system:String>
+    <system:String x:Key="TableSize">Размер стола</system:String>
+    <system:String x:Key="TableStatus">Статус стола</system:String>
+    <system:String x:Key="Operations">Операции</system:String>
+    <system:String x:Key="AddMenu">Добавить меню</system:String>
+    <system:String x:Key="Count">Количество</system:String>
+    <system:String x:Key="Date">Дата</system:String>
+    <system:String x:Key="AddNewMember">Добавить нового участника</system:String>
+    <system:String x:Key="TablesId">Ид. стола</system:String>
+    <system:String x:Key="EmployeesId">Ид. сотрудника</system:String>
+    <system:String x:Key="CustomersId">Ид. клиента</system:String>
+    <system:String x:Key="Notes">Примечания</system:String>
+    <system:String x:Key="Status">Статус</system:String>
+    <system:String x:Key="OrderDate">Дата заказа</system:String>
+    <system:String x:Key="Pay">Оплатить</system:String>
+    <system:String x:Key="Return">Вернуть</system:String>
+    <system:String x:Key="Submit">Отправить</system:String>
+    <system:String x:Key="Qty">Количество</system:String>
+    <system:String x:Key="CheakStatus">Проверить статус</system:String>
+    <system:String x:Key="Product">Товар</system:String>
 
-    <!-- Errors -->
+
+    <!--  Errors  -->
     <system:String x:Key="LoginError">Неверный логин</system:String>
     <system:String x:Key="PasswordError">Неверный пароль</system:String>
     <system:String x:Key="UserError">Пользователь не существует</system:String>
+    <system:String x:Key="EmailError">Ошибка в адресе электронной почты</system:String>
+    <system:String x:Key="FirstNameError">Ошибка имени</system:String>
+    <system:String x:Key="LastNameError">Ошибка фамилии</system:String>
+    <system:String x:Key="OrdersError">Ошибка заказов</system:String>
+    <system:String x:Key="PhoneNumberError">Ошибка Номер телефона</system:String>
+
 </ResourceDictionary>

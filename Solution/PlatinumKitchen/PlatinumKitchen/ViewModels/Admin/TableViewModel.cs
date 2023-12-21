@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows;
 
 namespace PlatinumKitchen.ViewModels.Admin
 {
@@ -76,24 +77,26 @@ namespace PlatinumKitchen.ViewModels.Admin
             try
             {
                 var table = Controller.DataBase.TablesRepository.Get(tableId);
-                if(table.TableStatus == "Free")
+                if(table.TableStatus == "Free" || Controller.UserE!= null || Controller.Admin)
                 {
                     var order = Controller.DataBase.OrdersRepository.GetAll()
-                        .Where(x => x.Customers == Controller.User).First();
+                        .Where(x => x.Customers == Controller.User && x.Status != "Paid").First();
                     order.Tables.TableStatus = "Free";
                     table.TableStatus = "Busy";
                     order.Tables = table;
+                    Controller.DataBase.OrdersRepository.Update(order);
+                    Controller.OrdersView = null;
+                    Controller.OrdersViewModel = null;
+                    Controller.OrdersView = new();
+                    Controller.OrdersViewModel = new();
+                    Controller.OrdersView.DataContext = Controller.OrdersViewModel;
+                    Controller.SetMainPage("Orders");
+                    Controller.DataBase.Save();
+                    Controller.UpdateData();
+                    UpdateDate();
+                    Controller.MainView.Tables.IsChecked = false;
+                    Controller.MainView.Orders.IsChecked = true;
                 }
-
-                Controller.OrdersView = null;
-                Controller.OrdersViewModel = null;
-                Controller.OrdersView = new();
-                Controller.OrdersViewModel = new();
-                Controller.OrdersView.DataContext = Controller.OrdersViewModel;
-                Controller.SetMainPage("Orders");
-                Controller.DataBase.Save();
-                Controller.UpdateData();
-                UpdateDate();
             }
             catch { }
         }
@@ -143,9 +146,24 @@ namespace PlatinumKitchen.ViewModels.Admin
             }
         }
 
+        public Visibility VisRemove
+        {
+            get
+            {
+                if (!Controller.Admin)
+                {
+                    return Visibility.Collapsed;
+                }
+                else
+                {
+                    return Visibility.Visible;
+                }
+            }
+        }
+
         public void UpdateDate()
         {
-            members = new ObservableCollection<Tables>(Controller.DataBase.TablesRepository.GetAll().Where(item => item.TableNumber.Contains(Filter, StringComparison.OrdinalIgnoreCase)));
+            members = new ObservableCollection<Tables>(Controller.DataBase.TablesRepository.GetAll().Where(item => item.TableStatus.Contains(Filter, StringComparison.OrdinalIgnoreCase)));
             Controller.TablesView.membersDataGrid.ItemsSource = members;
         }
 

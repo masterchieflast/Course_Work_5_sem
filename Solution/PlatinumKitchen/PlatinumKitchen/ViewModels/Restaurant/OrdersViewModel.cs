@@ -154,7 +154,6 @@ namespace PlatinumKitchen.ViewModels.Restaurant
         {
             try
             {
-
                 var Orders = Orderss.SingleOrDefault
                     (x => x.Menu == menu);
 
@@ -201,26 +200,34 @@ namespace PlatinumKitchen.ViewModels.Restaurant
 
         private void ReturnMenu()
         {
-            var items = Controller.OrdersView.listPanel.SelectedItem as OrderItems;
-
-            if (items != null)
+            try
             {
-                TotalBill -= items.Menu.Price;
 
-                if (items.Quantity > 1)
+                var items = Controller.OrdersView.listPanel.SelectedItem as OrderItems;
+
+                if (items != null)
                 {
-                    items.Quantity--;
+                    TotalBill -= items.Menu.Price;
+
+                    if (items.Quantity > 1)
+                    {
+                        items.Quantity--;
+                    }
+                    else
+                    {
+                        Orderss.Remove(items);
+                        Controller.DataBase.OrderItemsRepository.Delete(items.Id);
+                    }
                 }
-                else
-                {
-                    Orderss.Remove(items);
-                    Controller.DataBase.OrderItemsRepository.Delete(items.Id);
-                }
+
+                Controller.OrdersView.listPanel.ItemsSource = null;
+                Controller.OrdersView.listPanel.ItemsSource = Orderss;
+                Controller.DataBase.Save();
             }
+            catch (Exception)
+            {
 
-            Controller.OrdersView.listPanel.ItemsSource = null;
-            Controller.OrdersView.listPanel.ItemsSource = Orderss;
-            Controller.DataBase.Save();
+            }
         }
 
         public ICommand ChangeTableCommand { get; set; }
@@ -274,6 +281,7 @@ namespace PlatinumKitchen.ViewModels.Restaurant
             Controller.OrdersView.itemControl.ItemsSource = MenuList;
         }
 
+
         public OrdersViewModel()
         {
             try
@@ -289,7 +297,7 @@ namespace PlatinumKitchen.ViewModels.Restaurant
                     TotalBill += item.Quantity * item.Menu.Price;
                 }
 
-                if (_orders == null)
+                if (_orders == null && Controller.User != null)
                 {
                     try
                     {
@@ -315,7 +323,7 @@ namespace PlatinumKitchen.ViewModels.Restaurant
                 }
                 else
                 {
-                    if (_orders.Status == "Ready")
+                    if (Controller.User != null && _orders.Status == "Ready")
                     {
                         PaymentEnabled = true;
                     }
@@ -326,5 +334,7 @@ namespace PlatinumKitchen.ViewModels.Restaurant
 
             }
         }
+
+
     }
 }

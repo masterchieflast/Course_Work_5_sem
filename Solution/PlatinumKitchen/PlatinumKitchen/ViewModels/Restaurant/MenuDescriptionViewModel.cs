@@ -44,7 +44,15 @@ namespace PlatinumKitchen.ViewModels.Restaurant
 
         private void SaveMenu()
         {
+            if(_menu.Price < 0)
+            {
+                MessageBox.Show("Price");
+                return;
+            }
+
+
             Controller.MenuDescriptionView.Name.IsHitTestVisible = false;
+            Controller.MenuDescriptionView.Price.IsHitTestVisible = false;
             Controller.MenuDescriptionView.Description.IsHitTestVisible = false;
             Controller.MenuDescriptionView.GetImage.Visibility = Visibility.Hidden;
             Controller.MenuDescriptionView.ToSave.Visibility = Visibility.Hidden;
@@ -52,7 +60,6 @@ namespace PlatinumKitchen.ViewModels.Restaurant
             {
                 Controller.DataBase.MenuRepository.Update(_menu);
                 Controller.UpdateData();
-
 
                 var sourcePath = Controller.Uri + $"/Assert/Images/Menu/PreImage.jpg";
                 var destinationPath = Controller.Uri + $"/Assert/Images/Menu/Pre{MenuId}.jpg";

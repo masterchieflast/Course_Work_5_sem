@@ -2,6 +2,7 @@
 using PlatinumKitchen.Models.Database.Entityes;
 using PlatinumKitchen.Utilities;
 using PlatinumKitchen.Utilities.Commands;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 
 namespace PlatinumKitchen.ViewModels.Restaurant
@@ -15,9 +16,40 @@ namespace PlatinumKitchen.ViewModels.Restaurant
 
         private DelegateCommand<int>? getDescriptionMenu;
 
+        private DelegateCommand? addMenu;
+
         public MenuViewModel()
         {
             UpdateFilteredMenu();
+        }
+
+        public ICommand AddMenu
+        {
+            get
+            {
+                if (addMenu == null)
+                {
+                    addMenu = new DelegateCommand(AddMenuItem);
+                }
+
+                return addMenu;
+            }
+        }
+
+        private void AddMenuItem()
+        {
+            var menu = new Menu
+            {
+                Name = "newMenu",
+                Description = "newMenu",
+                Price = (decimal?)0.00,
+                Notes = "-",
+                MenuType = "other",
+            };
+
+            Controller.DataBase.MenuRepository.Create(menu);
+            Controller.DataBase.Save();
+            Controller.SetMainPage("Menu");
         }
 
         public ICommand GetDescriptionMenu
@@ -62,16 +94,23 @@ namespace PlatinumKitchen.ViewModels.Restaurant
 
         public void UpdateFilteredMenu()
         {
-            if (!string.IsNullOrWhiteSpace(_menuFilter))
+            try
             {
-                var filteredMenu = _menuBase.Where(item => item.Name.Contains(_menuFilter, StringComparison.OrdinalIgnoreCase))
-                                        .OrderBy(item => item.Name)
-                                        .ToList();
-                Menu = filteredMenu;
+                if (!string.IsNullOrWhiteSpace(_menuFilter))
+                {
+                    var filteredMenu = _menuBase.Where(item => item.Name.Contains(_menuFilter, StringComparison.OrdinalIgnoreCase))
+                                            .OrderBy(item => item.Name)
+                                            .ToList();
+                    Menu = filteredMenu;
+                }
+                else
+                {
+                    Menu = _menuBase;
+                }
             }
-            else
+            catch (Exception)
             {
-                Menu = _menuBase;
+
             }
         }
     }

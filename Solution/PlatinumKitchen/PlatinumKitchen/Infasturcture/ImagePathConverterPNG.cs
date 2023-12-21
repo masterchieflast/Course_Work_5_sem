@@ -29,35 +29,33 @@ namespace PlatinumKitchen.Infasturcture
                     File.Delete(Controller.Uri + $"/{values[1]}/Pre{values[0]}.png");
                 }
 
-                if (Controller.User != null)
+                if (Controller.Admin)
                 {
-                    return imageConverter.ConvertFromString(Controller.Uri + $"/{values[1]}/{values[0]}.png");
+                    return imageConverter.ConvertFromString(Controller.Uri + $"/{values[1]}/admin.png");
                 }
                 else if (Controller.UserE != null)
                 {
                     return imageConverter.ConvertFromString(Controller.Uri + $"/{values[1]}/e{values[0]}.png");
                 }
-                else
+                else 
                 {
-                    return imageConverter.ConvertFromString(Controller.Uri + $"/{values[1]}/admin.png");
+                    return imageConverter.ConvertFromString(Controller.Uri + $"/{values[1]}/{values[0]}.png");
                 }
             }
             catch (Exception)
             {
-
-                if (Controller.User != null)
-                {
-                    return imageConverter.ConvertFromString(Controller.Uri + $"/{values[1]}/0.png");
-                }
-                else if (Controller.UserE != null)
+                if (Controller.UserE != null)
                 {
                     return imageConverter.ConvertFromString(Controller.Uri + $"/{values[1]}/e0.png");
+                }
+                else if (Controller.User != null)
+                {
+                    return imageConverter.ConvertFromString(Controller.Uri + $"/{values[1]}/0.png");
                 }
                 else
                 {
                     return imageConverter.ConvertFromString(Controller.Uri + $"/{values[1]}/admin.png");
                 }
-                
             }
 
         }

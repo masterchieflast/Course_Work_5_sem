@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
     xmlns:local="clr-namespace:PlatinumKitchen.Infasturcture"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MenuView"
@@ -22,6 +23,7 @@
             x:Name="txtMenu"
             Grid.Row="0"
             Height="28"
+            Margin="0,1,218,1"
             VerticalContentAlignment="Center"
             Background="#5b6267"
             BorderBrush="#ffe0a3"
@@ -32,6 +34,29 @@
             FontWeight="Medium"
             Foreground="Black"
             Text="{Binding MenuFilter, UpdateSourceTrigger=PropertyChanged}" />
+        <Button
+            x:Name="SaveBut"
+            Grid.Row="0"
+            Width="200"
+            Height="NaN"
+            Margin="600,1,0,0"
+            HorizontalAlignment="Right"
+            Background="Green"
+            Command="{Binding AddMenu}"
+            Cursor="Hand"
+            Style="{StaticResource addButton}">
+            <StackPanel Orientation="Horizontal">
+                <fa:IconImage
+                    Width="11"
+                    Height="11"
+                    Margin="0,1,8,0"
+                    VerticalAlignment="Center"
+                    Foreground="white"
+                    Icon="Add" />
+                <TextBlock Text="{DynamicResource AddMenu}" />
+            </StackPanel>
+        </Button>
+
         <ListView
             Grid.Row="1"
             d:ItemsSource="{d:SampleData ItemCount=5}"
@@ -94,7 +119,7 @@
                                                 HorizontalAlignment="Center"
                                                 FontSize="12"
                                                 Foreground="Black"
-                                                Text="{Binding Price}" />
+                                                Text="{Binding Price, Mode=TwoWay, StringFormat={}{0} $}" />
                                         </StackPanel>
                                     </Grid>
                                 </Border>
@@ -105,4 +130,5 @@
             </ListView.ItemTemplate>
         </ListView>
     </Grid>
+
 </Page>

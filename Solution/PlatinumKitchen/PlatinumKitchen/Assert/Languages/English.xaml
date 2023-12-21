@@ -14,16 +14,55 @@
     <system:String x:Key="RepeatPassword">Repeat Password</system:String>
     <system:String x:Key="PasswordNotEquals">Password Not Equals</system:String>
     <system:String x:Key="Email">Email</system:String>
-    <system:String x:Key="EmailError">Email Error</system:String>
     <system:String x:Key="FirstName">First Name</system:String>
     <system:String x:Key="LastName">Last Name</system:String>
     <system:String x:Key="PhoneNumber">Phone Number</system:String>
     <system:String x:Key="Position">Position</system:String>
     <system:String x:Key="Salary">Salary</system:String>
+    <system:String x:Key="Good">Good</system:String>
+    <system:String x:Key="Account">Account</system:String>
+    <system:String x:Key="Menu">Menu</system:String>
+    <system:String x:Key="Report">Report</system:String>
+    <system:String x:Key="Customers">Customers</system:String>
+    <system:String x:Key="Employees">Employees</system:String>
+    <system:String x:Key="Tables">Tables</system:String>
+    <system:String x:Key="OrdersList">Orders List</system:String>
+    <system:String x:Key="Orders">Orders</system:String>
+    <system:String x:Key="Income">Income</system:String>
+    <system:String x:Key="SaveChanges">Save Changes</system:String>
+    <system:String x:Key="EnterImage">Enter Image</system:String>
+    <system:String x:Key="AddNewTable">Add New Table</system:String>
+    <system:String x:Key="Search">Search</system:String>
+    <system:String x:Key="Id">Id</system:String>
+    <system:String x:Key="TableNumber">Table Number</system:String>
+    <system:String x:Key="TableSize">Table Size</system:String>
+    <system:String x:Key="TableStatus">Table Status</system:String>
+    <system:String x:Key="Operations">Operations</system:String>
+    <system:String x:Key="AddMenu">Add Menu</system:String>
+    <system:String x:Key="Count">Count</system:String>
+    <system:String x:Key="Date">Date</system:String>
+    <system:String x:Key="AddNewMember">Add New Member</system:String>
+    <system:String x:Key="TablesId">Tables Id</system:String>
+    <system:String x:Key="EmployeesId">Employees Id</system:String>
+    <system:String x:Key="CustomersId">Customers Id</system:String>
+    <system:String x:Key="Notes">Notes</system:String>
+    <system:String x:Key="Status">Status</system:String>
+    <system:String x:Key="OrderDate">Order Date</system:String>
+    <system:String x:Key="Pay">Pay</system:String>
+    <system:String x:Key="Return">Return</system:String>
+    <system:String x:Key="Submit">Submit</system:String>
+    <system:String x:Key="Qty">Qty</system:String>
+    <system:String x:Key="CheakStatus">Cheak Status</system:String>
+    <system:String x:Key="Product">Product</system:String>
 
     <!--  Errors  -->
     <system:String x:Key="LoginError">Invalid Login</system:String>
     <system:String x:Key="PasswordError">Invalid Password</system:String>
     <system:String x:Key="UserError">User not exist</system:String>
+    <system:String x:Key="EmailError">Email Error</system:String>
+    <system:String x:Key="FirstNameError">First Name Error</system:String>
+    <system:String x:Key="LastNameError">Last Name Error</system:String>
+    <system:String x:Key="OrdersError">Orders Error</system:String>
+    <system:String x:Key="PhoneNumberError">Phone Number</system:String>
 
 </ResourceDictionary>

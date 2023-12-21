@@ -34,7 +34,7 @@
                 FontSize="32"
                 FontWeight="SemiBold"
                 Foreground="#121518"
-                Text="Customers" />
+                Text="{DynamicResource Customers}" />
 
             <!--  Add Button  -->
             <Button
@@ -49,7 +49,7 @@
                         VerticalAlignment="Center"
                         Foreground="white"
                         Icon="Plus" />
-                    <TextBlock Text="Add New Member" />
+                    <TextBlock Text="{DynamicResource AddNewMember}" />
                 </StackPanel>
             </Button>
             <Button
@@ -68,7 +68,7 @@
                         VerticalAlignment="Center"
                         Foreground="white"
                         Icon="Refresh" />
-                    <TextBlock Text="Save Changes" />
+                    <TextBlock Text="{DynamicResource SaveChanges}" />
                 </StackPanel>
             </Button>
 
@@ -89,7 +89,7 @@
                 FontSize="13"
                 FontWeight="SemiBold"
                 Foreground="#121518"
-                Text="Search" />
+                Text="{DynamicResource Search}" />
 
             <!--  Filter Textbox  -->
             <Grid
@@ -118,58 +118,47 @@
                 RowStyle="{DynamicResource DataGridRowStyle1}"
                 Style="{DynamicResource DataGridStyle1}">
                 <DataGrid.Columns>
-                    <DataGridCheckBoxColumn
-                        Width="auto"
-                        CanUserResize="False"
-                        ElementStyle="{StaticResource CheckBoxStyle1}"
-                        Header="C">
-                        <DataGridCheckBoxColumn.HeaderTemplate>
-                            <DataTemplate>
-                                <CheckBox Style="{StaticResource CheckBoxStyle1}" />
-                            </DataTemplate>
-                        </DataGridCheckBoxColumn.HeaderTemplate>
-                    </DataGridCheckBoxColumn>
                     <DataGridTextColumn
                         Width="auto"
                         Binding="{Binding Id}"
                         CanUserResize="False"
-                        Header="#"
+                        Header="{DynamicResource Id}"
                         IsReadOnly="True" />
                     <DataGridTextColumn
                         Width="*"
                         Binding="{Binding First_Name}"
-                        Header="First Name"
+                        Header="{DynamicResource FirstName}"
                         IsReadOnly="False" />
                     <DataGridTextColumn
                         Width="*"
                         Binding="{Binding Last_Name}"
-                        Header="Last Name"
+                        Header="{DynamicResource LastName}"
                         IsReadOnly="False" />
                     <DataGridTextColumn
                         Width="*"
                         Binding="{Binding Login}"
-                        Header="Login"
+                        Header="{DynamicResource Login}"
                         IsReadOnly="False" />
                     <DataGridTextColumn
                         Width="*"
                         Binding="{Binding Password}"
-                        Header="Password"
+                        Header="{DynamicResource Password}"
                         IsReadOnly="False" />
                     <DataGridTextColumn
                         Width="*"
                         Binding="{Binding Email}"
-                        Header="Email"
+                        Header="{DynamicResource Email}"
                         IsReadOnly="False" />
                     <DataGridTextColumn
                         x:Name="Phone_Number"
                         Width="*"
                         Binding="{Binding Phone_Number}"
-                        Header="Phone Number"
+                        Header="{DynamicResource PhoneNumber}"
                         IsReadOnly="False" />
                     <DataGridTemplateColumn
                         Width="auto"
                         Header="Operations"
-                        IsReadOnly="True">
+                        IsReadOnly="False">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">

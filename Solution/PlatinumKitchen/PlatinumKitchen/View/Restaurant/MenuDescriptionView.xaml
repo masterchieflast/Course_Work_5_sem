@@ -135,7 +135,7 @@
                         FontSize="15"
                         Foreground="black"
                         IsHitTestVisible="False"
-                        Text="{Binding Menu.Price, Mode=TwoWay}"
+                        Text="{Binding Menu.Price, Mode=TwoWay, StringFormat={}{0} $}"
                         TextAlignment="Center" />
                     <TextBox
                         x:Name="Description"

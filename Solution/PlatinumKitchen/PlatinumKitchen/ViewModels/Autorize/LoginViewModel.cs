@@ -107,12 +107,21 @@ namespace PlatinumKitchen.ViewModels.Autorize
             {
                 var pas = UnsecureString.Encode(UnsecureString.ConvertToUnsecureString(Password));
 
-                if (Login.Length >= 9 && Login[..9].Equals("employees", StringComparison.CurrentCultureIgnoreCase))
+                if(Login == "-Admin" && UnsecureString.ConvertToUnsecureString(Password) == "00--aa")
+                {
+                    Controller.Admin = true;
+                    Controller.AutorizeView.Hide();
+                    Controller.Login();
+                    App.StartMainView();
+                    return;
+                }
+
+                if (Login.Length >= 8 && Login[..8].Equals("employee", StringComparison.CurrentCultureIgnoreCase))
                 {
                     List<Employees> users = Controller.DataBase.EmployeeRepository.GetAll().ToList();
                     foreach (Employees user in users)
                     {
-                        if (user.Login == Login[9..] && pas == user.Password)
+                        if (user.Login == Login[8..] && pas == user.Password)
                         {
                             Controller.UserE = Controller.DataBase.EmployeeRepository.Get(user.Id);
                             Controller.AutorizeView.Hide();
